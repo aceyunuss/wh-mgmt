@@ -449,4 +449,6 @@ class App extends BaseConfig
 
     public $debug = true;
 
+    public $displayErrorDetails = true;
+
 }

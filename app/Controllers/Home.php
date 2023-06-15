@@ -2,29 +2,52 @@
 
 namespace App\Controllers;
 
+use App\Models\User;
+
 class Home extends BaseController
 {
   public function index()
   {
-    return view('login');
+    $session = session();
+    if (is_null($session->get('uid'))) {
+      return view('login');
+    } else {
+      return redirect()->to('dashboard');
+    }
   }
 
-  public function te()
+  public function dashboard()
   {
     return $this->template("dashboard_vw", "Hola", []);
   }
 
   public function login()
   {
+    $session = session();
+
     $username = $this->request->getPost('username');
     $password = $this->request->getPost('password');
 
-    if (true) {
-      $session = session();
-      $session->set('username', $username);
-      return $this->template("dashboard_vw", "Hola", []);
+    $userModel = new User();
+
+    $user = $userModel->checkLogin($username, $password);
+
+    if ($user) {
+
+      $session->set('uid', $user['id']);
+      $session->set('nama', $user['nama']);
+      $session->set('jabatan', $user['jabatan']);
+      echo "<script>alert('Login berhasi!')</script>";
     } else {
-      echo 'Invalid username or password.';
+      echo "<script>alert('Login gagal! Username dan password tidak sesuai.')</script>";
     }
+    return $this->index();
+  }
+
+  public function logout()
+  {
+    $session = session();
+    $session->destroy();
+    return redirect()->to('/');
   }
 }

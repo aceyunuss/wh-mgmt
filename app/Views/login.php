@@ -40,7 +40,7 @@
               </div>
             </div>
             <div class="mt-4">
-              <form method="POST" action="<?= site_url("home/login") ?>">
+              <form method="POST" action="<?= site_url("login") ?>">
                 <div class="form-group mb-3">
                   <label class="form-label">Username</label>
                   <input type="text" name="username" class="form-control" />

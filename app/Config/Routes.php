@@ -44,7 +44,7 @@ $routes->group('master', function ($routes) {
     $routes->post('ubah_sv', 'Pengguna::ubah_sv');
     $routes->get('hapus/(:num)', 'Pengguna::hapus/$1');
   });
-  
+
   $routes->group('barang', function ($routes) {
     $routes->get('/', 'Barang::index');
     $routes->get('tambah', 'Barang::tambah');
@@ -53,7 +53,7 @@ $routes->group('master', function ($routes) {
     $routes->post('ubah_sv', 'Barang::ubah_sv');
     $routes->get('hapus/(:num)', 'Barang::hapus/$1');
   });
-  
+
   $routes->group('supplier', function ($routes) {
     $routes->get('/', 'Supplier::index');
     $routes->get('tambah', 'Supplier::tambah');
@@ -64,6 +64,10 @@ $routes->group('master', function ($routes) {
   });
 });
 
+$routes->group('permintaan', function ($routes) {
+  $routes->get('/', 'Permintaan::index');
+  $routes->post('buat', 'Permintaan::buat');
+});
 /*
  * --------------------------------------------------------------------
  * Additional Routing

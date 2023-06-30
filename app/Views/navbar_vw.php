@@ -35,19 +35,19 @@
   <ul class="nav-menu">
     <li class="nav-group-title">Transaksi</li>
     <li class="nav-menu-item">
-      <a href="<?= site_url("permintaanbarang") ?>">
+      <a href="<?= site_url("permintaan") ?>">
         <i class="icon-box feather"></i>
         <span class="nav-menu-item-title">Permintaan Barang</span>
       </a>
     </li>
     <li class="nav-menu-item">
-      <a href="v-mail.html">
+      <a href="<?= site_url("permintaanpembelian") ?>">
         <i class="icon-briefcase feather"></i>
         <span class="nav-menu-item-title">Permintaan Pembelian Barang</span>
       </a>
     </li>
     <li class="nav-menu-item">
-      <a href="v-chat.html">
+      <a href="<?= site_url("pembelian") ?>">
         <i class="icon-shopping-bag feather"></i>
         <span class="nav-menu-item-title">Pembelian Barang</span>
       </a>

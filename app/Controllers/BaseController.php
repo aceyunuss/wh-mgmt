@@ -58,11 +58,29 @@ abstract class BaseController extends Controller
 
   public function template($view = "", $title = "", $data = [])
   {
+
+    $parts = explode(' ', session()->get('nama'));
+    $initials = '';
+    foreach ($parts as $part) {
+      $initials .= $part[0];
+    }
+    $data['usr'] = session()->get();
+    $data['message'] = session()->get('message') ?? [];
+    $data['usr']['as'] = $initials;
     $pas['content'] = $view;
     $pas['site_title'] = "Warehouse";
-    $pas['site_subtitle'] = $title;
-    $pass = array_merge($pas, $data);
+    $pas['site_subtitle'] = explode("/", $title)[0];
+    $pas['site_subtitle2'] = (explode("/", $title)[1]) ?? "";
 
+    $pas['subpage'] = strtolower(str_replace(" ", "", $pas['site_subtitle']));
+    $pas['subpage2'] = strtolower(str_replace(" ", "", $pas['site_subtitle2']));
+    $pass = array_merge($pas, $data);
     return view("template_vw", $pass);
+  }
+
+  public function setMessage($status, $message)
+  {
+    $session = session();
+    $session->set('message', ["status" => $status, 'msg' => $message]);
   }
 }

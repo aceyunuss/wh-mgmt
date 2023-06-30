@@ -32,9 +32,19 @@ $routes->set404Override();
 $routes->get('/', 'Home::index');
 $routes->get('dashboard', 'Home::dashboard');
 $routes->get('logout', 'Home::logout');
-
-
 $routes->post('login', 'Home::login');
+
+
+$routes->group('master', function ($routes) {
+  $routes->group('pengguna', function ($routes) {
+    $routes->get('/', 'Pengguna::index');
+    $routes->get('tambah', 'Pengguna::tambah');
+    $routes->post('tambah_sv', 'Pengguna::tambah_sv');
+    $routes->get('ubah/(:num)', 'Pengguna::ubah/$1');
+    $routes->post('ubah_sv', 'Pengguna::ubah_sv');
+    $routes->get('hapus/(:num)', 'Pengguna::hapus/$1');
+  });
+});
 
 /*
  * --------------------------------------------------------------------
@@ -50,5 +60,5 @@ $routes->post('login', 'Home::login');
  * needing to reload it.
  */
 if (is_file(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
-    require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
+  require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
 }

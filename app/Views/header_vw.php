@@ -18,20 +18,25 @@
         <div class="dropdown header-nav-item-select nav-profile">
           <div class="toggle-wrapper" id="nav-profile-dropdown" data-bs-toggle="dropdown">
             <div class="avatar avatar-circle avatar-image" style="width: 35px; height: 35px; line-height: 35px;">
-              <img src="<?= base_url('assets/images/avatars/thumb-1.jpg') ?>" alt="">
+              <!-- <img src="<?= base_url('assets/images/avatars/thumb-1.jpg') ?>" alt=""> -->
+              <div class="avatar avatar-text bg-disabled">
+                <span><?= $usr['as'] ?></span>
+              </div>
             </div>
-            <span class="fw-bold mx-1">Julio Baker</span>
+            <span class="fw-bold mx-1"><?= $usr['nama'] ?></span>
             <i class="feather icon-chevron-down"></i>
           </div>
           <div class="dropdown-menu dropdown-menu-end">
             <div class="nav-profile-header">
               <div class="d-flex align-items-center">
                 <div class="avatar avatar-circle avatar-image">
-                  <img src="assets/images/avatars/thumb-1.jpg" alt="">
+                  <div class="avatar avatar-text bg-disabled">
+                    <span><?= $usr['as'] ?></span>
+                  </div>
                 </div>
                 <div class="d-flex flex-column ms-1">
-                  <span class="fw-bold text-dark">Julio Baker</span>
-                  <span class="font-size-sm">Julio@themenate.com</span>
+                  <span class="fw-bold text-dark"><?= $usr['nama'] ?></span>
+                  <span class="font-size-sm"><?= $usr['jabatan'] ?></span>
                 </div>
               </div>
             </div>
@@ -41,7 +46,7 @@
                 <span>Profile</span>
               </div>
             </a>
-            <a href="javascript:void(0)" class="dropdown-item">
+            <a href="<?= site_url('logout') ?>" class="dropdown-item">
               <div class="d-flex align-items-center"><i class="font-size-lg me-2 feather icon-power"></i>
                 <span>Sign Out</span>
               </div>

@@ -36,7 +36,8 @@
           <div class="w-100">
             <div class="d-flex justify-content-center mt-3">
               <div class="text-center logo">
-                <img alt="logo" class="img-fluid" src="assets/images/logo/logo.png" style="height: 70px;">
+                <img alt="logo" class="img-fluid" src="assets/images/logo/logo-fold.png" style="height: 50px;">
+                <span style="font-size: 30px;"><b>WH-MGM</b></span>
               </div>
             </div>
             <div class="mt-4">

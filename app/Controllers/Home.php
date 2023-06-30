@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\User;
+use App\Models\Pengguna_m;
 
 class Home extends BaseController
 {
@@ -18,7 +18,7 @@ class Home extends BaseController
 
   public function dashboard()
   {
-    return $this->template("dashboard_vw", "Hola", []);
+    return $this->template("dashboard_vw", "Dashboard", []);
   }
 
   public function login()
@@ -28,7 +28,7 @@ class Home extends BaseController
     $username = $this->request->getPost('username');
     $password = $this->request->getPost('password');
 
-    $userModel = new User();
+    $userModel = new Pengguna_m();
 
     $user = $userModel->checkLogin($username, $password);
 

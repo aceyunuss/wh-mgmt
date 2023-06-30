@@ -1,6 +1,27 @@
 <!-- Content START -->
 <div class="content">
   <div class="main">
+    <div class="page-header">
+      <h4 class="page-title"><?= $site_subtitle2 ? $site_subtitle2 : $site_subtitle; ?></h4>
+      <div class="breadcrumb">
+        <span class="me-1 text-gray"><i class="feather icon-home"></i></span>
+        <div class="breadcrumb-item"><a href="<?= site_url() ?>"> Home </a></div>
+        <div class="breadcrumb-item"><a href="<?= site_url($subpage) ?>"> <?= $site_subtitle ?> </a></div>
+        <?php if (!empty($site_subtitle2)) { ?>
+          <div class="breadcrumb-item"><a href="<?= site_url($subpage . '/' . $subpage2) ?>"> <?= $site_subtitle2 ?> </a></div>
+        <?php } ?>
+      </div>
+    </div>
+
+    <?php if (isset($message) && !empty($message)) { ?>
+      <div class="alert alert-<?= $message['status'] ?> alert-dismissible fade show" role="alert">
+        <?= $message['msg'] ?>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    <?php
+      // $session = session();
+      session()->remove('message');
+    } ?>
     <?php include($content . ".php"); ?>
   </div>
 

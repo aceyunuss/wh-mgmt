@@ -22,11 +22,21 @@
     </div>
   </div>
 
-  <script src="<?= base_url('assets/js/vendors.min.js'); ?>"></script>
-  <script src="<?= base_url('assets/vendors/apexcharts/dist/apexcharts.min.js'); ?>"></script>
-  <script src="<?= base_url('assets/js/pages/dashboard.js'); ?>"></script>
-  <script src="<?= base_url('assets/js/app.min.js'); ?>"></script>
-
 </body>
+
+<script src="<?= base_url('assets/js/vendors.min.js'); ?>"></script>
+<script src="<?= base_url('assets/vendors/apexcharts/dist/apexcharts.min.js'); ?>"></script>
+<script src="<?= base_url('assets/js/pages/dashboard.js'); ?>"></script>
+<script src="<?= base_url('assets/js/app.min.js'); ?>"></script>
+<script src="<?= base_url('assets/vendors/datatables/jquery.dataTables.min.js') ?>"></script>
+<script src="<?= base_url('assets/vendors/datatables/dataTables.bootstrap.min.js') ?>"></script>
+<script>
+  $('.data-table').DataTable({
+    'columnDefs': [{
+      'orderable': false,
+      'targets': 0
+    }]
+  });
+</script>
 
 </html>

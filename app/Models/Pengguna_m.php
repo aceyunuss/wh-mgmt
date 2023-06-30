@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class User extends Model
+class Pengguna_m extends Model
 {
   protected $table = 'pengguna';
   protected $primaryKey = 'id';
@@ -29,5 +29,20 @@ class User extends Model
     }
 
     return null;
+  }
+
+  public function getAllUsers()
+  {
+    return $this->findAll();
+  }
+
+  public function updateUser($id, $data)
+  {
+    return $this->update($id, $data);
+  }
+
+  public function deleteUser($id)
+  {
+    return $this->delete($id);
   }
 }

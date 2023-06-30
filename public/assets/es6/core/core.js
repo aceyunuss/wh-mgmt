@@ -17,7 +17,7 @@ export default class Core {
 		if($(sideNav).hasClass(navMenuCollapse) && !$(sideNav).hasClass(navMenuQuickExpand)) {
 			$(`${sideNav} .logo img`).attr('src', `/assets/images/logo/${$(sideNav).hasClass('nav-menu-dark') ? 'logo-fold-white' : 'logo-fold'}.png`);
 		} else {
-			$(`${sideNav} .logo img`).attr('src', `/assets/images/logo/${$(sideNav).hasClass('nav-menu-dark') ? 'logo-white' : 'logo'}.png`);
+			$(`${sideNav} .logo img`).attr('src', `/assets/images/logo/${$(sideNav).hasClass('nav-menu-dark') ? 'logo-white' : 'logo-fold'}.png`);
 		}
 	}
 

@@ -44,6 +44,15 @@ $routes->group('master', function ($routes) {
     $routes->post('ubah_sv', 'Pengguna::ubah_sv');
     $routes->get('hapus/(:num)', 'Pengguna::hapus/$1');
   });
+  
+  $routes->group('barang', function ($routes) {
+    $routes->get('/', 'Barang::index');
+    $routes->get('tambah', 'Barang::tambah');
+    $routes->post('tambah_sv', 'Barang::tambah_sv');
+    $routes->get('ubah/(:num)', 'Barang::ubah/$1');
+    $routes->post('ubah_sv', 'Barang::ubah_sv');
+    $routes->get('hapus/(:num)', 'Barang::hapus/$1');
+  });
 });
 
 /*

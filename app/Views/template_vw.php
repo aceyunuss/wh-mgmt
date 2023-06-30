@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title><?= $site_title . " - " . $site_subtitle; ?></title>
+  <title><?= $site_title; ?></title>
 
   <link rel="shortcut icon" href="<?= base_url('assets/images/logo/favicon.ico'); ?>">
   <link href="<?= base_url('assets/vendors/apexcharts/dist/apexcharts.css'); ?>" rel="stylesheet">

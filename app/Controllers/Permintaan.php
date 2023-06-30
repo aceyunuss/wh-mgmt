@@ -30,7 +30,8 @@ class Permintaan extends BaseController
       'nama_pengguna' => session()->get('nama'),
       'nomor'         => $post['nomor'],
       'tanggal'       => date('Y-m-d'),
-      'keterangan'    => $post['keterangan']
+      'keterangan'    => $post['keterangan'],
+      'status'        => "Menunggu Persetujuan"
     ];
 
     $Permintaan_m->db->transBegin();

@@ -1,90 +1,103 @@
 <div class="row">
-  <div class="col-lg-3">
-    <div class="card">
-      <div class="card-body">
-        <div class="d-flex align-items-center justify-content-between">
-          <div>
-            <h3>$168.90</h3>
-            <span class="text-muted fw-semibold">This Month</span>
-          </div>
-          <div class="text-success fw-bold font-size-lg">+18%</div>
-        </div>
-        <div class="mt-4" id="monthly-revenue" style="max-width: 250px;"></div>
-      </div>
-    </div>
+  <div class="col-md-4">
     <div class="card">
       <div class="card-body">
         <div class="text-muted mb-2">This Quarter</div>
         <h3>$3,936.80</h3>
+        </p>
         <span class="text-muted fw-semibold">Total Revenue</span>
-        <div class="mt-4">
-          <h4 class="mb-1">88</h4>
-          <div class="text-muted d-flex justify-content-between mb-2">
-            <span>Online Revenue</span>
-            <span>70%</span>
-          </div>
-          <div class="progress-sm progress">
-            <div class="progress-bar bg-info" style="width: 70%"></div>
+        <h3>$3,936.80</h3>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-body">
+        <h4>Device Satistic</h4>
+        <div class="my-4">
+          <div class="row">
+            <div class="col-4">
+              <h5>50%</h5>
+              <span class="text-muted">Chrome</span>
+            </div>
+            <div class="col-4">
+              <h5>30%</h5>
+              <span class="text-muted">Firefox</span>
+            </div>
+            <div class="col-4">
+              <h5>20%</h5>
+              <span class="text-muted">Edge</span>
+            </div>
           </div>
         </div>
-        <div class="mt-4">
-          <h4 class="mb-1">69</h4>
-          <div class="text-muted d-flex justify-content-between mb-2">
-            <span>Offline Revenue</span>
-            <span>50%</span>
-          </div>
-          <div class="progress-sm progress">
-            <div class="progress-bar bg-success" style="width: 50%"></div>
-          </div>
+        <div class="progress">
+          <div class="progress-bar bg-danger" style="width: 25%;"></div>
+          <div class="progress-bar bg-warning" style="width: 15%;"></div>
+          <div class="progress-bar bg-info" style="width: 50%;"></div>
+          <div class="progress-bar bg-primary" style="width: 10%;"></div>
         </div>
       </div>
     </div>
   </div>
-  <div class="col-lg-9">
+  <div class="col-md-4">
     <div class="card">
-      <div class="row">
-        <div class="col-md-8 border-end">
-          <div class="p-3">
-            <div id="region-data-map" style="width: 100%; height: 535px"></div>
-          </div>
+      <div class="card-body">
+        <h5 class="mb-1">88</h5>
+        <div class="text-muted d-flex justify-content-between mb-2">
+          <span>Online Revenue</span>
+          <span>70%</span>
         </div>
-        <div class="col-md-4">
-          <div class="d-flex justify-content-center mt-5 pt-3">
-            <div id="region-data-chart"></div>
-          </div>
-          <div class="mt-5 mx-auto" style="max-width: 200px;">
-            <div class="mt-5 mx-auto" style="max-width: 200px;">
-              <div class="d-flex align-item-center justify-content-between mb-3">
-                <div>
-                  <span class="badge-dot" style="background-color: rgb(17, 161, 253);"></span>
-                  <span class="text-dark fw-bolder ms-2">Texas</span>
-                </div>
-                <span>4447100</span>
-              </div>
-              <div class="d-flex align-item-center justify-content-between mb-3">
-                <div>
-                  <span class="badge-dot" style="background-color: rgb(0, 197, 105);"></span>
-                  <span class="text-dark fw-bolder ms-2">Georgia</span>
-                </div>
-                <span>626932</span>
-              </div>
-              <div class="d-flex align-item-center justify-content-between mb-3">
-                <div>
-                  <span class="badge-dot" style="background-color: rgb(255, 200, 51);"></span>
-                  <span class="text-dark fw-bolder ms-2">Utah</span>
-                </div>
-                <span>5130632</span>
-              </div>
-              <div class="d-flex align-item-center justify-content-between mb-3">
-                <div>
-                  <span class="badge-dot" style="background-color: rgb(90, 117, 249);"></span>
-                  <span class="text-dark fw-bolder ms-2">Nebraska</span>
-                </div>
-                <span>5130632</span>
-              </div>
-            </div>
-          </div>
+        <div class="progress-sm progress">
+          <div class="progress-bar bg-info" style="width: 70%"></div>
         </div>
+        </p>
+        <h5 class="mb-1">69</h5>
+        <div class="text-muted d-flex justify-content-between mb-2">
+          <span>Offline Revenue</span>
+          <span>50%</span>
+        </div>
+        <div class="progress-sm progress">
+          <div class="progress-bar bg-success" style="width: 50%"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="d-flex align-items-center justify-content-between mb-4">
+          <h4 class="mb-0">List Pekerjaan</h4>
+        </div>
+        <table class="table table-hover mt-2">
+          <thead>
+            <tr>
+              <th style="text-align: center;">#</th>
+              <th>Kategori</th>
+              <th>Tanggal</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="cursor-pointer">
+              <td style="text-align: center;">
+                <a href="<?= site_url('permintaan/proses/' . '2') ?>" class="btn btn-sm btn-primary">Proses</a>
+              </td>
+              <td>
+                <div class="d-flex align-items-center">
+                  <i class="icon-box feather"></i>&nbsp;&nbsp;Permintaan Barang
+                </div>
+              </td>
+              <td>06-06-2023</td>
+              <td>
+                <div class="badge-dot bg-success"></div>
+                <span class="ms-2">Menunggu Persetujuan</span>
+              </td>
+            </tr>
+          </tbody>
+
+        </table>
       </div>
     </div>
   </div>

@@ -53,6 +53,15 @@ $routes->group('master', function ($routes) {
     $routes->post('ubah_sv', 'Barang::ubah_sv');
     $routes->get('hapus/(:num)', 'Barang::hapus/$1');
   });
+  
+  $routes->group('supplier', function ($routes) {
+    $routes->get('/', 'Supplier::index');
+    $routes->get('tambah', 'Supplier::tambah');
+    $routes->post('tambah_sv', 'Supplier::tambah_sv');
+    $routes->get('ubah/(:num)', 'Supplier::ubah/$1');
+    $routes->post('ubah_sv', 'Supplier::ubah_sv');
+    $routes->get('hapus/(:num)', 'Supplier::hapus/$1');
+  });
 });
 
 /*

@@ -31,7 +31,8 @@ class Permintaan extends BaseController
       'nomor'         => $post['nomor'],
       'tanggal'       => date('Y-m-d'),
       'keterangan'    => $post['keterangan'],
-      'status'        => "Menunggu Persetujuan"
+      'status'        => "Menunggu Persetujuan",
+      'posisi'        => "Kepala Gudang"
     ];
 
     $Permintaan_m->db->transBegin();
@@ -57,6 +58,46 @@ class Permintaan extends BaseController
     } else {
       $status = "success";
       $msg = 'Data permintaan berhasil dibuat';
+      $Permintaan_m->db->transCommit();
+    }
+
+    $this->setMessage($status, $msg);
+    return redirect()->to(base_url(''));
+  }
+
+
+  public function proses($id)
+  {
+    $Permintaan_barang_m = new Permintaan_barang_m();
+    $Permintaan_m = new Permintaan_m();
+
+    $data['permintaan'] = $Permintaan_m->getPermintaan($id);
+    $data['barang'] = $Permintaan_barang_m->getPermintaanBarang($id);
+
+    return $this->template("permintaan/proses_vw", "Permintaan", $data);
+  }
+
+
+  public function persetujuan()
+  {
+    $Permintaan_m = new Permintaan_m();
+    $id = $this->request->getPost('id');
+
+    $data = [
+      'status'        => "Disetujui",
+      'posisi'        => "Kepala Gudang (Proses Selesai)"
+    ];
+
+    $Permintaan_m->db->transBegin();
+    $Permintaan_m->updatePermintaan($id, $data);
+
+    if ($Permintaan_m->db->transStatus() === false) {
+      $status = "danger";
+      $msg = 'Data permintaan gagal disetujui';
+      $Permintaan_m->db->transRollback();
+    } else {
+      $status = "success";
+      $msg = 'Data permintaan berhasil disetujui';
       $Permintaan_m->db->transCommit();
     }
 

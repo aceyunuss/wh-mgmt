@@ -11,6 +11,12 @@
       </div>
     </div>
   </a>
+  <li class="nav-menu-item">
+    <a href="<?= site_url("dashboard") ?>">
+      <i class="feather icon-home"></i>
+      <span class="nav-menu-item-title">Dashboard</span>
+    </a>
+  </li>
   <ul class="nav-menu">
     <li class="nav-group-title">Data Master</li>
     <li class="nav-menu-item">
@@ -50,6 +56,12 @@
       <a href="<?= site_url("pembelian") ?>">
         <i class="icon-shopping-bag feather"></i>
         <span class="nav-menu-item-title">Pembelian Barang</span>
+      </a>
+    </li>
+    <li class="nav-menu-item">
+      <a href="<?= site_url("prediksi") ?>">
+        <i class="icon-bar-chart-2 feather"></i>
+        <span class="nav-menu-item-title">Prediksi Persediaan</span>
       </a>
     </li>
   </ul>

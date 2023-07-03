@@ -68,7 +68,7 @@ abstract class BaseController extends Controller
     $data['message'] = session()->get('message') ?? [];
     $data['usr']['as'] = $initials;
     $pas['content'] = $view;
-    $pas['site_title'] = "Warehouse";
+    $pas['site_title'] = "GM Medical";
     $pas['site_subtitle'] = explode("/", $title)[0];
     $pas['site_subtitle2'] = (explode("/", $title)[1]) ?? "";
 

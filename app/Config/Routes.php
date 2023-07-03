@@ -67,6 +67,8 @@ $routes->group('master', function ($routes) {
 $routes->group('permintaan', function ($routes) {
   $routes->get('/', 'Permintaan::index');
   $routes->post('buat', 'Permintaan::buat');
+  $routes->get('proses/(:num)', 'Permintaan::proses/$1');
+  $routes->post('persetujuan', 'Permintaan::persetujuan');
 });
 /*
  * --------------------------------------------------------------------

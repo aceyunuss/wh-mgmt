@@ -80,21 +80,23 @@
             </tr>
           </thead>
           <tbody>
-            <tr class="cursor-pointer">
-              <td style="text-align: center;">
-                <a href="<?= site_url('permintaan/proses/' . '2') ?>" class="btn btn-sm btn-primary">Proses</a>
-              </td>
-              <td>
-                <div class="d-flex align-items-center">
-                  <i class="icon-box feather"></i>&nbsp;&nbsp;Permintaan Barang
-                </div>
-              </td>
-              <td>06-06-2023</td>
-              <td>
-                <div class="badge-dot bg-success"></div>
-                <span class="ms-2">Menunggu Persetujuan</span>
-              </td>
-            </tr>
+            <?php foreach ($pekerjaan as $k => $v) { ?>
+              <tr class="cursor-pointer">
+                <td style="text-align: center;">
+                  <a href="<?= site_url($v['link']) ?>" class="btn btn-sm btn-primary">Proses</a>
+                </td>
+                <td>
+                  <div class="d-flex align-items-center">
+                    <i class="icon-box feather"></i>&nbsp;&nbsp;<?= $v['kategori'] ?>
+                  </div>
+                </td>
+                <td><?= $v['tanggal'] ?></td>
+                <td>
+                  <div class="badge-dot bg-success"></div>
+                  <span class="ms-2"><?= $v['status'] ?></span>
+                </td>
+              </tr>
+            <?php } ?>
           </tbody>
 
         </table>

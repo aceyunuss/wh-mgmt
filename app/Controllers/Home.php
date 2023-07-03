@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Pengguna_m;
+use App\Models\List_pekerjaan_m;
 
 class Home extends BaseController
 {
@@ -18,7 +19,10 @@ class Home extends BaseController
 
   public function dashboard()
   {
-    return $this->template("dashboard_vw", "Dashboard", []);
+    $List_pekerjaan_m = new List_pekerjaan_m();
+    $data['pekerjaan'] = $List_pekerjaan_m->getPekerjaan();
+
+    return $this->template("dashboard_vw", "Dashboard", $data);
   }
 
   public function login()

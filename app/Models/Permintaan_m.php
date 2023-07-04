@@ -20,6 +20,11 @@ class Permintaan_m extends Model
     return $this->find($id);
   }
 
+  public function getPermintaanParam($where)
+  {
+    return $this->where($where)->get()->getRowArray();
+  }
+
   public function getAllPermintaan()
   {
     return $this->findAll();

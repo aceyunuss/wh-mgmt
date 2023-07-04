@@ -104,4 +104,20 @@ class Permintaan extends BaseController
     $this->setMessage($status, $msg);
     return redirect()->to(base_url(''));
   }
+
+
+  public function getbyno($no)
+  {
+    $Permintaan_barang_m = new Permintaan_barang_m();
+    $Permintaan_m = new Permintaan_m();
+
+    $permintaan = $Permintaan_m->getPermintaanParam(['nomor' => $no]);
+
+    $barang = "";
+    if (!empty($permintaan)) {
+      $barang = $Permintaan_barang_m->getPermintaanBarang($permintaan['id']);
+    }
+
+    echo json_encode($barang);
+  }
 }

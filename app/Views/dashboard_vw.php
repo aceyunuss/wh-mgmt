@@ -74,6 +74,7 @@
           <thead>
             <tr>
               <th style="text-align: center;">#</th>
+              <th>Nomor</th>
               <th>Kategori</th>
               <th>Tanggal</th>
               <th>Status</th>
@@ -85,6 +86,7 @@
                 <td style="text-align: center;">
                   <a href="<?= site_url($v['link']) ?>" class="btn btn-sm btn-primary">Proses</a>
                 </td>
+                <td><?= $v['nomor'] ?></td>
                 <td>
                   <div class="d-flex align-items-center">
                     <i class="icon-box feather"></i>&nbsp;&nbsp;<?= $v['kategori'] ?>

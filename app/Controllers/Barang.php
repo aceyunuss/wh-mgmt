@@ -29,7 +29,7 @@ class Barang extends BaseController
     $data = [
       'kode' => $post['kode'],
       'nama'      => $post['nama'],
-      'jenis'   => $post['jenis'],
+      'harga'   => $post['harga'],
       'stok' => $post['stok'],
       'satuan'     => $post['satuan']
     ];
@@ -69,7 +69,7 @@ class Barang extends BaseController
     $data = [
       'kode' => $post['kode'],
       'nama'      => $post['nama'],
-      'jenis'   => $post['jenis'],
+      'harga'   => $post['harga'],
       'stok' => $post['stok'],
       'satuan'     => $post['satuan']
     ];

@@ -20,15 +20,15 @@
               </div>
             </div>
             <div class="row mb-3">
-              <label class="col-sm-3 col-form-label">Jenis</label>
+              <label class="col-sm-3 col-form-label">Harga</label>
               <div class="col-sm-9">
-                <input type="text" class="form-control" name="jenis" required>
+                <input type="number" min="1" class="form-control" name="harga" required>
               </div>
             </div>
             <div class="row mb-3">
               <label class="col-sm-3 col-form-label">Stok</label>
               <div class="col-sm-9">
-                <input type="number" class="form-control" name="stok" required>
+                <input type="number" min="0" class="form-control" name="stok" required>
               </div>
             </div>
             <div class="row mb-3">

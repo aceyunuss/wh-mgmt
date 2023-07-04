@@ -21,9 +21,9 @@
               </div>
             </div>
             <div class="row mb-3">
-              <label class="col-sm-3 col-form-label">Jenis</label>
+              <label class="col-sm-3 col-form-label">Harga</label>
               <div class="col-sm-9">
-                <input type="text" class="form-control" name="jenis" required value="<?= $barang['jenis'] ?>">
+                <input type="number" class="form-control" name="harga" required value="<?= $barang['harga'] ?>">
               </div>
             </div>
             <div class="row mb-3">

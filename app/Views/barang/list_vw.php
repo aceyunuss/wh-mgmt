@@ -11,7 +11,7 @@
             <th style="text-align: center;">Aksi</th>
             <th>Kode</th>
             <th>Nama</th>
-            <th>Jenis</th>
+            <th>Harga</th>
             <th>Stok</th>
             <th>Satuan</th>
           </tr>
@@ -25,7 +25,7 @@
               </td>
               <td><?= $value['kode'] ?></td>
               <td><?= $value['nama'] ?></td>
-              <td><?= $value['jenis'] ?></td>
+              <td><?= $value['harga'] ?></td>
               <td><?= $value['stok'] ?></td>
               <td><?= $value['satuan'] ?></td>
             </tr>

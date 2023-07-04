@@ -8,7 +8,7 @@ class Barang_m extends Model
 {
   protected $table = 'barang';
   protected $primaryKey = 'id';
-  protected $allowedFields = ['kode', 'nama', 'jenis', 'stok', 'satuan'];
+  protected $allowedFields = ['kode', 'nama', 'harga', 'stok', 'satuan'];
 
   public function insertBarang($data)
   {

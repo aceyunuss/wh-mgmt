@@ -59,6 +59,12 @@
       </a>
     </li>
     <li class="nav-menu-item">
+      <a href="<?= site_url("riwayat") ?>">
+        <i class="icon-clock feather"></i>
+        <span class="nav-menu-item-title">Riwayat Transaksi</span>
+      </a>
+    </li>
+    <li class="nav-menu-item">
       <a href="<?= site_url("prediksi") ?>">
         <i class="icon-bar-chart-2 feather"></i>
         <span class="nav-menu-item-title">Prediksi Persediaan</span>

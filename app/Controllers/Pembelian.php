@@ -132,4 +132,16 @@ class Pembelian extends BaseController
 
     echo json_encode($barang);
   }
+
+
+  public function riwayat($id)
+  {
+    $Pembelian_barang_m = new Pembelian_barang_m();
+    $Pembelian_m = new Pembelian_m();
+
+    $data['pembelian'] = $Pembelian_m->getPembelian($id);
+    $data['barang'] = $Pembelian_barang_m->getPembelianBarang($id);
+
+    return $this->template("pembelian/riwayat_vw", "Riwayat Pembelian", $data);
+  }
 }

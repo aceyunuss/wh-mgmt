@@ -120,4 +120,15 @@ class Permintaan extends BaseController
 
     echo json_encode($barang);
   }
+
+  public function riwayat($id)
+  {
+    $Permintaan_barang_m = new Permintaan_barang_m();
+    $Permintaan_m = new Permintaan_m();
+
+    $data['permintaan'] = $Permintaan_m->getPermintaan($id);
+    $data['barang'] = $Permintaan_barang_m->getPermintaanBarang($id);
+
+    return $this->template("permintaan/riwayat_vw", "Riwayat Permintaan", $data);
+  }
 }

@@ -31,6 +31,7 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('dashboard', 'Home::dashboard');
+$routes->get('riwayat', 'Home::riwayat');
 $routes->get('logout', 'Home::logout');
 $routes->post('login', 'Home::login');
 
@@ -68,6 +69,7 @@ $routes->group('permintaan', function ($routes) {
   $routes->get('/', 'Permintaan::index');
   $routes->post('buat', 'Permintaan::buat');
   $routes->get('proses/(:num)', 'Permintaan::proses/$1');
+  $routes->get('riwayat/(:num)', 'Permintaan::riwayat/$1');
   $routes->post('persetujuan', 'Permintaan::persetujuan');
   $routes->get('getbyno/(:any)', 'Permintaan::getbyno/$1');
 });
@@ -76,6 +78,7 @@ $routes->group('permintaanpembelian', function ($routes) {
   $routes->get('/', 'Permintaan_pembelian::index');
   $routes->post('buat', 'Permintaan_pembelian::buat');
   $routes->get('proses/(:num)', 'Permintaan_pembelian::proses/$1');
+  $routes->get('riwayat/(:num)', 'Permintaan_pembelian::riwayat/$1');
   $routes->post('persetujuan', 'Permintaan_pembelian::persetujuan');
 });
 
@@ -83,6 +86,7 @@ $routes->group('pembelian', function ($routes) {
   $routes->get('/', 'Pembelian::index');
   $routes->post('buat', 'Pembelian::buat');
   $routes->get('proses/(:num)', 'Pembelian::proses/$1');
+  $routes->get('riwayat/(:num)', 'Pembelian::riwayat/$1');
   $routes->post('persetujuan', 'Pembelian::persetujuan');
   $routes->get('getbyno/(:any)', 'Pembelian::getbyno/$1');
 });

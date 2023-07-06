@@ -122,4 +122,16 @@ class Permintaan_pembelian extends BaseController
 
     echo json_encode($barang);
   }
+  
+  public function riwayat($id)
+  {
+    $Permintaan_pembelian_barang_m = new Permintaan_pembelian_barang_m();
+    $Permintaan_pembelian_m = new Permintaan_pembelian_m();
+
+    $data['permintaan'] = $Permintaan_pembelian_m->getPermintaanPembelian($id);
+    $data['barang'] = $Permintaan_pembelian_barang_m->getPermintaanPembelianBarang($id);
+
+    return $this->template("permintaan_pembelian/riwayat_vw", "Riwayat Permintaan Pembelian", $data);
+  }
+
 }

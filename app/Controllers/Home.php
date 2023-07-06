@@ -4,6 +4,9 @@ namespace App\Controllers;
 
 use App\Models\Pengguna_m;
 use App\Models\List_pekerjaan_m;
+use App\Models\Pembelian_m;
+use App\Models\Permintaan_m;
+use App\Models\Permintaan_pembelian_m;
 
 class Home extends BaseController
 {
@@ -56,5 +59,17 @@ class Home extends BaseController
     $session = session();
     $session->destroy();
     return redirect()->to('/');
+  }
+
+  public function riwayat()
+  {
+    $Permintaan = new Permintaan_m();
+    $Permintaan_pembelian = new Permintaan_pembelian_m();
+    $Pembelian = new Pembelian_m();
+
+    $data['pr'] = $Permintaan->getAllPermintaan();
+    $data['prb'] = $Permintaan_pembelian->getAllPermintaanPembelian();
+    $data['pb'] = $Pembelian->getAllPembelian();
+    return $this->template("riwayat_vw", "Riwayat", $data);
   }
 }

@@ -44,19 +44,19 @@
         <h5 class="mb-1"><?= $dash3['permintaan_pending'] ?></h5>
         <div class="text-muted d-flex justify-content-between mb-2">
           <span>Permintaan Disetujui</span>
-          <span><?= round(($dash3['permintaan_pending'] / $dash3['permintaan_total'] * 100), 0) ?> %</span>
+          <span><?= empty($dash3['permintaan_total']) ? 0 : round(($dash3['permintaan_pending'] / $dash3['permintaan_total'] * 100), 0) ?> %</span>
         </div>
         <div class="progress-sm progress">
-          <div class="progress-bar bg-info" style="width: <?= round(($dash3['permintaan_pending'] / $dash3['permintaan_total'] * 100), 0) ?>%"></div>
+          <div class="progress-bar bg-info" style="width: <?= empty($dash3['permintaan_total']) ? 0 : round(($dash3['permintaan_pending'] / $dash3['permintaan_total'] * 100), 0) ?>%"></div>
         </div>
         </p>
         <h5 class="mb-1"><?= $dash3['permintaan_pembelian_pending'] ?></h5>
         <div class="text-muted d-flex justify-content-between mb-2">
           <span>Permintaan Pembelian Disetujui</span>
-          <span><?= round(($dash3['permintaan_pembelian_pending'] / $dash3['permintaan_pembelian_total'] * 100), 0) ?> %</span>
+          <span><?= empty($dash3['permintaan_pembelian_total']) ? 0 : round(($dash3['permintaan_pembelian_pending'] / $dash3['permintaan_pembelian_total'] * 100), 0) ?> %</span>
         </div>
         <div class="progress-sm progress">
-          <div class="progress-bar bg-success" style="width: <?= round(($dash3['permintaan_pembelian_pending'] / $dash3['permintaan_pembelian_total'] * 100), 0) ?>%"></div>
+          <div class="progress-bar bg-success" style="width: <?= empty($dash3['permintaan_pembelian_total']) ? 0 : round(($dash3['permintaan_pembelian_pending'] / $dash3['permintaan_pembelian_total'] * 100), 0) ?>%"></div>
         </div>
       </div>
     </div>

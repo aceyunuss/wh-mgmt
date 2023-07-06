@@ -32,7 +32,7 @@ class Permintaan_pembelian extends BaseController
       'tanggal'       => date('Y-m-d'),
       'keterangan'    => $post['keterangan'],
       'status'        => "Menunggu Persetujuan",
-      'posisi'        => "Kepala Gudang"
+      'posisi'        => "Purchasing"
     ];
 
     $Permintaan_pembelian_m->db->transBegin();
@@ -85,7 +85,7 @@ class Permintaan_pembelian extends BaseController
 
     $data = [
       'status'        => "Disetujui",
-      'posisi'        => "Kepala Gudang (Proses Selesai)"
+      'posisi'        => "Purchasing (Proses Selesai)"
     ];
 
     $Permintaan_pembelian_m->db->transBegin();

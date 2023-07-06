@@ -78,6 +78,15 @@ $routes->group('permintaanpembelian', function ($routes) {
   $routes->get('proses/(:num)', 'Permintaan_pembelian::proses/$1');
   $routes->post('persetujuan', 'Permintaan_pembelian::persetujuan');
 });
+
+$routes->group('pembelian', function ($routes) {
+  $routes->get('/', 'Pembelian::index');
+  $routes->post('buat', 'Pembelian::buat');
+  $routes->get('proses/(:num)', 'Pembelian::proses/$1');
+  $routes->post('persetujuan', 'Pembelian::persetujuan');
+  $routes->get('getbyno/(:any)', 'Pembelian::getbyno/$1');
+});
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

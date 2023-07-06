@@ -20,6 +20,9 @@ class Home extends BaseController
   public function dashboard()
   {
     $List_pekerjaan_m = new List_pekerjaan_m();
+    $data['dash1'] = $List_pekerjaan_m->getDash1();
+    $data['dash2'] = $List_pekerjaan_m->getDash2();
+    $data['dash3'] = $List_pekerjaan_m->getDash3();
     $data['pekerjaan'] = $List_pekerjaan_m->getPekerjaan();
 
     return $this->template("dashboard_vw", "Dashboard", $data);

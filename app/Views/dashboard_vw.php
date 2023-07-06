@@ -2,39 +2,38 @@
   <div class="col-md-4">
     <div class="card">
       <div class="card-body">
-        <div class="text-muted mb-2">This Quarter</div>
-        <h3>$3,936.80</h3>
+        <div class="text-muted mb-2">Total Nilai Permintaan Pembelian</div>
+        <h3>Rp <?= $dash1['permintaan_pembelian'] ?></h3>
         </p>
-        <span class="text-muted fw-semibold">Total Revenue</span>
-        <h3>$3,936.80</h3>
+        <span class="text-muted fw-semibold">Total Nilai Pembelian</span>
+        <h3>Rp <?= $dash1['pembelian'] ?></h3>
       </div>
     </div>
   </div>
   <div class="col-md-4">
     <div class="card">
       <div class="card-body">
-        <h4>Device Satistic</h4>
+        <h4>Data</h4>
         <div class="my-4">
           <div class="row">
             <div class="col-4">
-              <h5>50%</h5>
-              <span class="text-muted">Chrome</span>
+              <h5><?= $dash2['pengguna'] ?></h5>
+              <span class="text-muted">Pengguna</span>
             </div>
             <div class="col-4">
-              <h5>30%</h5>
-              <span class="text-muted">Firefox</span>
+              <h5><?= $dash2['supplier'] ?></h5>
+              <span class="text-muted">Supplier</span>
             </div>
             <div class="col-4">
-              <h5>20%</h5>
-              <span class="text-muted">Edge</span>
+              <h5><?= $dash2['barang'] ?></h5>
+              <span class="text-muted">Barang</span>
             </div>
           </div>
         </div>
         <div class="progress">
-          <div class="progress-bar bg-danger" style="width: 25%;"></div>
-          <div class="progress-bar bg-warning" style="width: 15%;"></div>
-          <div class="progress-bar bg-info" style="width: 50%;"></div>
-          <div class="progress-bar bg-primary" style="width: 10%;"></div>
+          <div class="progress-bar bg-danger" style="width: 33%;"></div>
+          <div class="progress-bar bg-warning" style="width: 34%;"></div>
+          <div class="progress-bar bg-primary" style="width: 33%;"></div>
         </div>
       </div>
     </div>
@@ -42,22 +41,22 @@
   <div class="col-md-4">
     <div class="card">
       <div class="card-body">
-        <h5 class="mb-1">88</h5>
+        <h5 class="mb-1"><?= $dash3['permintaan_pending'] ?></h5>
         <div class="text-muted d-flex justify-content-between mb-2">
-          <span>Online Revenue</span>
-          <span>70%</span>
+          <span>Permintaan Disetujui</span>
+          <span><?= round(($dash3['permintaan_pending'] / $dash3['permintaan_total'] * 100), 0) ?> %</span>
         </div>
         <div class="progress-sm progress">
-          <div class="progress-bar bg-info" style="width: 70%"></div>
+          <div class="progress-bar bg-info" style="width: <?= round(($dash3['permintaan_pending'] / $dash3['permintaan_total'] * 100), 0) ?>%"></div>
         </div>
         </p>
-        <h5 class="mb-1">69</h5>
+        <h5 class="mb-1"><?= $dash3['permintaan_pembelian_pending'] ?></h5>
         <div class="text-muted d-flex justify-content-between mb-2">
-          <span>Offline Revenue</span>
-          <span>50%</span>
+          <span>Permintaan Pembelian Disetujui</span>
+          <span><?= round(($dash3['permintaan_pembelian_pending'] / $dash3['permintaan_pembelian_total'] * 100), 0) ?> %</span>
         </div>
         <div class="progress-sm progress">
-          <div class="progress-bar bg-success" style="width: 50%"></div>
+          <div class="progress-bar bg-success" style="width: <?= round(($dash3['permintaan_pembelian_pending'] / $dash3['permintaan_pembelian_total'] * 100), 0) ?>%"></div>
         </div>
       </div>
     </div>

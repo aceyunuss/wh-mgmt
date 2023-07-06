@@ -47,6 +47,8 @@ class Permintaan_pembelian extends BaseController
       $barang[$key]['nama']       = $post['itm_nama'][$key];
       $barang[$key]['jumlah']       = $post['itm_jml'][$key];
       $barang[$key]['satuan']    = $post['itm_unt'][$key];
+      $barang[$key]['total']    = $post['itm_total'][$key];
+      $barang[$key]['harga']    = $post['itm_harga'][$key];
     }
 
     $Permintaan_pembelian_barang_m->insertPermintaanPembelianBarang($barang);

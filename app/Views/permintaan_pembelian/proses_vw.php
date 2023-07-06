@@ -1,8 +1,8 @@
 <form method="POST" action="<?= site_url('permintaanpembelian/persetujuan') ?>" class="form">
-  <input type="hidden" class="form-control" value="<?= $permintaanpembelian['id'] ?>" name="id">
+  <input type="hidden" class="form-control" value="<?= $permintaan['id'] ?>" name="id">
   <div class="card">
     <div class="card-header">
-      <h5>Form Permintaan Barang</h5>
+      <h5>Form Permintaan Pembelian Barang</h5>
     </div>
     <div class="card-body">
       <div class="mt-4">
@@ -11,13 +11,19 @@
             <div class="row mb-3">
               <label class="col-sm-2 col-form-label">Nomor</label>
               <div class="col-sm-3">
-                <input type="text" class="form-control" value="<?= $permintaanpembelian['nomor'] ?>" readonly>
+                <input type="text" class="form-control" value="<?= $permintaan['nomor'] ?>" readonly>
               </div>
             </div>
             <div class="row mb-3">
-              <label class="col-sm-2 col-form-label">Tanggal Permintaan</label>
+              <label class="col-sm-2 col-form-label">Tanggal</label>
               <div class="col-sm-3">
-                <input type="text" class="form-control" value="<?= $permintaanpembelian['tanggal'] ?>" readonly>
+                <input type="text" class="form-control" value="<?= $permintaan['tanggal'] ?>" readonly>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label class="col-sm-2 col-form-label">Keterangan</label>
+              <div class="col-sm-6">
+                <textarea class="form-control" readonly><?= $permintaan['keterangan'] ?></textarea>
               </div>
             </div>
           </div>

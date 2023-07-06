@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\Barang_m;
 use App\Models\Permintaan_pembelian_m;
 use App\Models\Permintaan_pembelian_barang_m;
 
@@ -10,8 +11,14 @@ class Permintaan_pembelian extends BaseController
 
   public function index()
   {
-    return $this->template("permintaan_pembelian/form_vw", "Permintaan Pembelian", []);
+    $Barang_m = new Barang_m();
+    $Permintaan_pembelian_m = new Permintaan_pembelian_m();
+    $data['barang'] = $Barang_m->getAllBarang();
+    $data['tgl'] = date('d-m-Y');
+    $data['nomor'] = $Permintaan_pembelian_m->generateNum();
+    return $this->template("permintaan_pembelian/form_vw", "Permintaan Pembelian", $data);
   }
+
 
   public function buat()
   {
@@ -19,15 +26,13 @@ class Permintaan_pembelian extends BaseController
     $Permintaan_pembelian_barang_m = new Permintaan_pembelian_barang_m();
     $post = $this->request->getPost();
 
-    $no = $Permintaan_pembelian_m->generateNum();
-
     $data = [
       'nama_pengguna' => session()->get('nama'),
-      'nomor'         => $no,
+      'nomor'         => $post['nomor'],
       'tanggal'       => date('Y-m-d'),
+      'keterangan'    => $post['keterangan'],
       'status'        => "Menunggu Persetujuan",
-      'posisi'        => "Purchasing",
-      'id_permintaan' => $post['id_permintaan']
+      'posisi'        => "Kepala Gudang"
     ];
 
     $Permintaan_pembelian_m->db->transBegin();
@@ -36,7 +41,7 @@ class Permintaan_pembelian extends BaseController
     $id = $Permintaan_pembelian_m->db->insertID();
 
     foreach ($post['itm_id'] as $key => $value) {
-      $barang[$key]['id_permintaan_pembelian'] = $id;
+      $barang[$key]['id_permintaan_pembelian']      = $id;
       $barang[$key]['id_barang']      = (int)$post['itm_id'][$key];
       $barang[$key]['kode']      = $post['itm_code'][$key];
       $barang[$key]['nama']       = $post['itm_nama'][$key];
@@ -66,7 +71,7 @@ class Permintaan_pembelian extends BaseController
     $Permintaan_pembelian_barang_m = new Permintaan_pembelian_barang_m();
     $Permintaan_pembelian_m = new Permintaan_pembelian_m();
 
-    $data['permintaanpembelian'] = $Permintaan_pembelian_m->getPermintaanPembelian($id);
+    $data['permintaan'] = $Permintaan_pembelian_m->getPermintaanPembelian($id);
     $data['barang'] = $Permintaan_pembelian_barang_m->getPermintaanPembelianBarang($id);
 
     return $this->template("permintaan_pembelian/proses_vw", "Permintaan Pembelian", $data);
@@ -80,7 +85,7 @@ class Permintaan_pembelian extends BaseController
 
     $data = [
       'status'        => "Disetujui",
-      'posisi'        => "Purchasing (Proses Selesai)"
+      'posisi'        => "Kepala Gudang (Proses Selesai)"
     ];
 
     $Permintaan_pembelian_m->db->transBegin();
@@ -98,5 +103,21 @@ class Permintaan_pembelian extends BaseController
 
     $this->setMessage($status, $msg);
     return redirect()->to(base_url(''));
+  }
+
+
+  public function getbyno($no)
+  {
+    $Permintaan_pembelian_barang_m = new Permintaan_pembelian_barang_m();
+    $Permintaan_pembelian_m = new Permintaan_pembelian_m();
+
+    $permintaan = $Permintaan_pembelian_m->getPermintaan_pembelianParam(['nomor' => $no]);
+
+    $barang = "";
+    if (!empty($permintaan)) {
+      $barang = $Permintaan_pembelian_barang_m->getPermintaan_pembelianBarang($permintaan['id']);
+    }
+
+    echo json_encode($barang);
   }
 }

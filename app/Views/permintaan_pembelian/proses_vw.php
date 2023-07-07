@@ -68,10 +68,36 @@
           </div>
         </div>
       </div>
-      </br></br></br>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <div class="mt-4">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row mb-3">
+              <label class="col-sm-2 col-form-label">Catatan</label>
+              <div class="col-sm-9">
+                <textarea class="form-control" name="note"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <center>
-        <button class="btn btn-primary" type="submit">Setuju</button>
+        <input type="hidden" name="status" value="" id="status">
+        <button class="btn btn-danger act" data-stat="Tidak Disetujui" style="width: 131px;" type="submit">Tidak Setuju</button>
+        <button class="btn btn-primary act" data-stat="Disetujui" style="width: 131px;" type="submit">Setuju</button>
       </center>
     </div>
   </div>
 </form>
+
+<script>
+  $(document).ready(function() {
+    $('.act').click(function() {
+      let stat = $(this).data("stat");
+      $('#status').val(stat)
+    })
+  })
+</script>

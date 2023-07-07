@@ -81,23 +81,24 @@ class Permintaan extends BaseController
   public function persetujuan()
   {
     $Permintaan_m = new Permintaan_m();
-    $id = $this->request->getPost('id');
+    $post = $this->request->getPost();
 
     $data = [
-      'status'        => "Disetujui",
-      'posisi'        => "Kepala Gudang (Proses Selesai)"
+      'status'        => $post['status'],
+      'posisi'        => "Kepala Gudang (Proses Selesai)",
+      'note'          => $post['note']
     ];
 
     $Permintaan_m->db->transBegin();
-    $Permintaan_m->updatePermintaan($id, $data);
+    $Permintaan_m->updatePermintaan($post['id'], $data);
 
     if ($Permintaan_m->db->transStatus() === false) {
       $status = "danger";
-      $msg = 'Data permintaan gagal disetujui';
+      $msg = 'Data permintaan gagal diproses';
       $Permintaan_m->db->transRollback();
     } else {
       $status = "success";
-      $msg = 'Data permintaan berhasil disetujui';
+      $msg = 'Data permintaan berhasil diproses';
       $Permintaan_m->db->transCommit();
     }
 

@@ -93,23 +93,24 @@ class Pembelian extends BaseController
   public function persetujuan()
   {
     $Pembelian_m = new Pembelian_m();
-    $id = $this->request->getPost('id');
+    $post = $this->request->getPost();
 
     $data = [
-      'status'        => "Disetujui",
+      'status'        => $post['status'],
+      'note'          => $post['note'],
       'posisi'        => "General Manager (Proses Selesai)"
     ];
 
     $Pembelian_m->db->transBegin();
-    $Pembelian_m->updatePembelian($id, $data);
+    $Pembelian_m->updatePembelian($post['id'], $data);
 
     if ($Pembelian_m->db->transStatus() === false) {
       $status = "danger";
-      $msg = 'Data pembelian gagal disetujui';
+      $msg = 'Data pembelian gagal diproses';
       $Pembelian_m->db->transRollback();
     } else {
       $status = "success";
-      $msg = 'Data pembelian berhasil disetujui';
+      $msg = 'Data pembelian berhasil diproses';
       $Pembelian_m->db->transCommit();
     }
 

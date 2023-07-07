@@ -83,23 +83,24 @@ class Permintaan_pembelian extends BaseController
   public function persetujuan()
   {
     $Permintaan_pembelian_m = new Permintaan_pembelian_m();
-    $id = $this->request->getPost('id');
+    $post = $this->request->getPost();
 
     $data = [
-      'status'        => "Disetujui",
+      'status'        => $post['status'],
+      'note'          => $post['note'],
       'posisi'        => "Purchasing (Proses Selesai)"
     ];
 
     $Permintaan_pembelian_m->db->transBegin();
-    $Permintaan_pembelian_m->updatePermintaanPembelian($id, $data);
+    $Permintaan_pembelian_m->updatePermintaanPembelian($post['id'], $data);
 
     if ($Permintaan_pembelian_m->db->transStatus() === false) {
       $status = "danger";
-      $msg = 'Data permintaan pembelian gagal disetujui';
+      $msg = 'Data permintaan pembelian gagal diproses';
       $Permintaan_pembelian_m->db->transRollback();
     } else {
       $status = "success";
-      $msg = 'Data permintaan pembelian berhasil disetujui';
+      $msg = 'Data permintaan pembelian berhasil diproses';
       $Permintaan_pembelian_m->db->transCommit();
     }
 
@@ -122,7 +123,7 @@ class Permintaan_pembelian extends BaseController
 
     echo json_encode($barang);
   }
-  
+
   public function riwayat($id)
   {
     $Permintaan_pembelian_barang_m = new Permintaan_pembelian_barang_m();
@@ -133,5 +134,4 @@ class Permintaan_pembelian extends BaseController
 
     return $this->template("permintaan_pembelian/riwayat_vw", "Riwayat Permintaan Pembelian", $data);
   }
-
 }

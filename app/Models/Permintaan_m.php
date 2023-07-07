@@ -8,7 +8,7 @@ class Permintaan_m extends Model
 {
   protected $table = 'permintaan';
   protected $primaryKey = 'id';
-  protected $allowedFields = ['nama_pengguna', 'nomor', 'tanggal', 'keterangan', 'status', 'posisi'];
+  protected $allowedFields = ['nama_pengguna', 'nomor', 'tanggal', 'keterangan', 'status', 'posisi', 'note'];
 
   public function insertPermintaan($data)
   {

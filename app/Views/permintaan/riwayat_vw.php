@@ -56,3 +56,19 @@
     </br>
   </div>
 </div>
+<div class="card">
+  <div class="card-body">
+    <div class="mt-4">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row mb-3">
+            <label class="col-sm-2 col-form-label">Catatan</label>
+            <div class="col-sm-9">
+              <textarea class="form-control" readonly><?= $permintaan['note'] ?></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

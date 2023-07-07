@@ -88,7 +88,7 @@
                 <td><?= $v['nomor'] ?></td>
                 <td>
                   <div class="d-flex align-items-center">
-                    <i class="icon-box feather"></i>&nbsp;&nbsp;<?= $v['kategori'] ?>
+                    <i class="<?= $v['icon'] ?>"></i>&nbsp;&nbsp;<?= $v['kategori'] ?>
                   </div>
                 </td>
                 <td><?= $v['tanggal'] ?></td>

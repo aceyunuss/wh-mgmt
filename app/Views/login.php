@@ -19,17 +19,7 @@
 <body>
   <div class="auth-full-height">
     <div class="row m-0">
-      <div class="col p-0 auth-full-height" style="background-image: url('assets/images/others/bg-1.jpg');">
-        <div class="d-flex justify-content-between flex-column h-100 px-5 py-3">
-          <div></div>
-          <div class="w-100 ">
-            <h1 class="display-4 text-white mb-4">Start with us</h1>
-            <p class="text-white lead" style="max-width: 630px;">Let's go down to sleep.</p>
-          </div>
-          <div class="d-flex justify-content-between">
-            <span class="text-white">© 2023</span>
-          </div>
-        </div>
+      <div class="col p-0 auth-full-height" style="background-image: url('assets/images/others/bg-1.png');">
       </div>
       <div class="col-12 p-0 auth-full-height bg-white" style="max-width: 450px;">
         <div class="d-flex h-100 align-items-center p-5">

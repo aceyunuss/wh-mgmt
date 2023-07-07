@@ -104,6 +104,10 @@ class Pembelian extends BaseController
     $Pembelian_m->db->transBegin();
     $Pembelian_m->updatePembelian($post['id'], $data);
 
+    if ($post['status'] == "Disetujui") {
+      $this->updateStock($post['id']);
+    }
+
     if ($Pembelian_m->db->transStatus() === false) {
       $status = "danger";
       $msg = 'Data pembelian gagal diproses';
@@ -144,5 +148,18 @@ class Pembelian extends BaseController
     $data['barang'] = $Pembelian_barang_m->getPembelianBarang($id);
 
     return $this->template("pembelian/riwayat_vw", "Riwayat Pembelian", $data);
+  }
+
+  public function updateStock($id)
+  {
+    $Pembelian_barang_m = new Pembelian_barang_m();
+    $Barang_m = new Barang_m();
+    $barang = $Pembelian_barang_m->getPembelianBarang($id);
+
+    foreach ($barang as $k => $v) {
+      $mst =  $Barang_m->getBarang($v['id_barang']);
+      $stock = $mst['stok'] + $v['jumlah'];
+      $Barang_m->updateBarang($mst['id'], ['stok' => $stock]);
+    }
   }
 }

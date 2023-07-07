@@ -92,6 +92,10 @@ class Permintaan extends BaseController
     $Permintaan_m->db->transBegin();
     $Permintaan_m->updatePermintaan($post['id'], $data);
 
+    if ($post['status'] == "Disetujui") {
+      $this->updateStock($post['id']);
+    }
+
     if ($Permintaan_m->db->transStatus() === false) {
       $status = "danger";
       $msg = 'Data permintaan gagal diproses';
@@ -131,5 +135,18 @@ class Permintaan extends BaseController
     $data['barang'] = $Permintaan_barang_m->getPermintaanBarang($id);
 
     return $this->template("permintaan/riwayat_vw", "Riwayat Permintaan", $data);
+  }
+
+  public function updateStock($id)
+  {
+    $Permintaan_barang_m = new Permintaan_barang_m();
+    $Barang_m = new Barang_m();
+    $barang = $Permintaan_barang_m->getPermintaanBarang($id);
+
+    foreach ($barang as $k => $v) {
+      $mst =  $Barang_m->getBarang($v['id_barang']);
+      $stock = empty($mst['stok']) ? 0 : ($mst['stok'] - $v['jumlah']);
+      $Barang_m->updateBarang($mst['id'], ['stok' => $stock]);
+    }
   }
 }

@@ -11,6 +11,7 @@ class Barang extends BaseController
   {
     $Barang_m = new Barang_m();
     $data['barang'] = $Barang_m->getAllBarang();
+    $data['access'] = session()->get('jabatan') == "Kepala Gudang";
     return $this->template("barang/list_vw", "Master/Barang", $data);
   }
 

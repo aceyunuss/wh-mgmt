@@ -80,7 +80,7 @@
   $('.nav-menu-item').hide();
   switch (role) {
     case "Admin Aplikasi":
-      $('.pemb, .pengguna, .barang, .supp, .permpemb, pemb, .riw, .dash').show();
+      $('.pemb, .pengguna, .barang, .supp, .permpemb, .perm, .riw, .dash').show();
     case "Purchasing":
       $('.pemb, .barang, .supp, .riw, .dash').show();
       break;

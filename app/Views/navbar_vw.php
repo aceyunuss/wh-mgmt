@@ -75,7 +75,7 @@
 
 
 <script>
-  let role =  "General Manager"; //"<?= $usr['jabatan'] ?>";
+  let role =  "<?= $usr['jabatan'] ?>";
 
   $('.nav-menu-item').hide();
   switch (role) {

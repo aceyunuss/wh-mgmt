@@ -8,7 +8,7 @@ class Pembelian_m extends Model
 {
   protected $table = 'pembelian';
   protected $primaryKey = 'id';
-  protected $allowedFields = ['nama_pengguna', 'nomor', 'tanggal', 'keterangan', 'status', 'posisi', 'id_supplier', 'kode_supplier', 'nama_supplier', 'note'];
+  protected $allowedFields = ['nama_pengguna', 'nomor', 'tanggal', 'keterangan', 'status', 'posisi', 'id_supplier', 'kode_supplier', 'nama_supplier', 'note', 'nomor_po', 'tanggal_po'];
 
   public function insertPembelian($data)
   {

@@ -3,10 +3,10 @@
     <div class="card">
       <div class="card-body">
         <div class="text-muted mb-2">Total Nilai Permintaan Pembelian</div>
-        <h3>Rp <?= $dash1['permintaan_pembelian'] ?></h3>
+        <h3>Rp <?= empty($dash1['permintaan_pembelian']) ? 0 : number_format($dash1['permintaan_pembelian'], 0, ",", ".") ?></h3>
         </p>
         <span class="text-muted fw-semibold">Total Nilai Pembelian</span>
-        <h3>Rp <?= $dash1['pembelian'] ?></h3>
+        <h3>Rp <?= empty($dash1['pembelian']) ? 0 : number_format($dash1['pembelian'], 0, ",", ".") ?></h3>
       </div>
     </div>
   </div>

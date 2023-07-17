@@ -42,7 +42,9 @@ class Pembelian extends BaseController
       'posisi'        => "General Manager",
       'id_supplier'   => $sup['id'],
       'kode_supplier' => $sup['kode'],
-      'nama_supplier' => $sup['nama']
+      'nama_supplier' => $sup['nama'],
+      'nomor_po'      => $post['nomor_po'],
+      'tanggal_po'    => $post['tgl_po'],
     ];
 
     $Pembelian_m->db->transBegin();

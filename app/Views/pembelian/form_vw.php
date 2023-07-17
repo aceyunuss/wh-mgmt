@@ -12,16 +12,26 @@
               <div class="col-sm-3">
                 <input type="text" class="form-control" value="<?= $nomor ?>" name="nomor" readonly>
               </div>
+              <div class="col-sm-1"></div>
+              <label class="col-sm-2 col-form-label">Nomor PO</label>
+              <div class="col-sm-3">
+                <input type="text" class="form-control" name="nomor_po">
+              </div>
             </div>
             <div class="row mb-3">
               <label class="col-sm-2 col-form-label">Tanggal Pembelian</label>
               <div class="col-sm-3">
                 <input type="text" class="form-control" value="<?= $tgl ?>" name="tgl" readonly>
               </div>
+              <div class="col-sm-1"></div>
+              <label class="col-sm-2 col-form-label">Tanggal PO</label>
+              <div class="col-sm-3">
+                <input type="date" class="form-control" name="tgl_po">
+              </div>
             </div>
             <div class="row mb-3">
               <label class="col-sm-2 col-form-label">Supplier</label>
-              <div class="col-sm-6">
+              <div class="col-sm-4">
                 <select class="form-control" name="supplier">
                   <option value="">--Pilih--</option>
                   <?php foreach ((array)$supplier as $k => $b) { ?>
@@ -32,7 +42,7 @@
             </div>
             <div class="row mb-3">
               <label class="col-sm-2 col-form-label">Keterangan</label>
-              <div class="col-sm-6">
+              <div class="col-sm-4">
                 <textarea class="form-control" name="keterangan"></textarea>
               </div>
             </div>

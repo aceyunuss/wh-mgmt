@@ -11,11 +11,21 @@
             <div class="col-sm-3">
               <input type="text" class="form-control" value="<?= $pembelian['nomor'] ?>" readonly>
             </div>
+            <div class="col-sm-1"></div>
+            <label class="col-sm-2 col-form-label">Nomor PO</label>
+            <div class="col-sm-3">
+              <input type="text" class="form-control" value="<?= $pembelian['nomor_po'] ?>" readonly>
+            </div>
           </div>
           <div class="row mb-3">
             <label class="col-sm-2 col-form-label">Tanggal Pembelian</label>
             <div class="col-sm-3">
               <input type="text" class="form-control" value="<?= $pembelian['tanggal'] ?>" readonly>
+            </div>
+            <div class="col-sm-1"></div>
+            <label class="col-sm-2 col-form-label">Tanggal PO</label>
+            <div class="col-sm-3">
+              <input type="text" class="form-control" value="<?= $pembelian['tanggal_po'] ?>" readonly>
             </div>
           </div>
           <div class="row mb-3">
@@ -26,7 +36,7 @@
           </div>
           <div class="row mb-3">
             <label class="col-sm-2 col-form-label">Keterangan</label>
-            <div class="col-sm-6">
+            <div class="col-sm-4">
               <textarea class="form-control" readonly><?= $pembelian['keterangan'] ?></textarea>
             </div>
           </div>

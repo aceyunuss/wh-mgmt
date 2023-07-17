@@ -11,11 +11,21 @@
             <div class="col-sm-3">
               <input type="text" class="form-control" value="<?= $permintaan['nomor'] ?>" readonly>
             </div>
+            <div class="col-sm-1"></div>
+            <label class="col-sm-2 col-form-label">Nomor PO</label>
+            <div class="col-sm-3">
+              <input type="text" class="form-control" value="<?= $permintaan['nomor_po'] ?>" readonly>
+            </div>
           </div>
           <div class="row mb-3">
             <label class="col-sm-2 col-form-label">Tanggal Permintaan</label>
             <div class="col-sm-3">
               <input type="text" class="form-control" value="<?= $permintaan['tanggal'] ?>" readonly>
+            </div>
+            <div class="col-sm-1"></div>
+            <label class="col-sm-2 col-form-label">Tanggal PO</label>
+            <div class="col-sm-3">
+              <input type="text" class="form-control" value="<?= $permintaan['tanggal_po'] ?>" readonly>
             </div>
           </div>
           <div class="row mb-3">

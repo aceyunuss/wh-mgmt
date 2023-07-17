@@ -32,7 +32,9 @@ class Permintaan_pembelian extends BaseController
       'tanggal'       => date('Y-m-d'),
       'keterangan'    => $post['keterangan'],
       'status'        => "Menunggu Persetujuan",
-      'posisi'        => "Purchasing"
+      'posisi'        => "Purchasing",
+      'nomor_po'      => $post['nomor_po'],
+      'tanggal_po'    => $post['tgl_po'],
     ];
 
     $Permintaan_pembelian_m->db->transBegin();

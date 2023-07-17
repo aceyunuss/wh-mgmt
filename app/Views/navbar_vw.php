@@ -43,13 +43,13 @@
     <li class="nav-menu-item perm">
       <a href="<?= site_url("permintaan") ?>">
         <i class="icon-box feather"></i>
-        <span class="nav-menu-item-title">Permintaan Barang</span>
+        <span class="nav-menu-item-title">Pesanan Barang</span>
       </a>
     </li>
     <li class="nav-menu-item permpemb">
       <a href="<?= site_url("permintaanpembelian") ?>">
         <i class="icon-briefcase feather"></i>
-        <span class="nav-menu-item-title">Permintaan Pembelian Barang</span>
+        <span class="nav-menu-item-title">Pesanan Pembelian Barang</span>
       </a>
     </li>
     <li class="nav-menu-item pemb">

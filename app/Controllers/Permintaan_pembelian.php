@@ -16,7 +16,7 @@ class Permintaan_pembelian extends BaseController
     $data['barang'] = $Barang_m->getAllBarang();
     $data['tgl'] = date('d-m-Y');
     $data['nomor'] = $Permintaan_pembelian_m->generateNum();
-    return $this->template("permintaan_pembelian/form_vw", "Permintaan Pembelian", $data);
+    return $this->template("permintaan_pembelian/form_vw", "Pesanan Pembelian", $data);
   }
 
 
@@ -78,7 +78,7 @@ class Permintaan_pembelian extends BaseController
     $data['permintaan'] = $Permintaan_pembelian_m->getPermintaanPembelian($id);
     $data['barang'] = $Permintaan_pembelian_barang_m->getPermintaanPembelianBarang($id);
 
-    return $this->template("permintaan_pembelian/proses_vw", "Permintaan Pembelian", $data);
+    return $this->template("permintaan_pembelian/proses_vw", "Pesanan Pembelian", $data);
   }
 
 
@@ -134,6 +134,6 @@ class Permintaan_pembelian extends BaseController
     $data['permintaan'] = $Permintaan_pembelian_m->getPermintaanPembelian($id);
     $data['barang'] = $Permintaan_pembelian_barang_m->getPermintaanPembelianBarang($id);
 
-    return $this->template("permintaan_pembelian/riwayat_vw", "Riwayat Permintaan Pembelian", $data);
+    return $this->template("permintaan_pembelian/riwayat_vw", "Riwayat Pesanan Pembelian", $data);
   }
 }

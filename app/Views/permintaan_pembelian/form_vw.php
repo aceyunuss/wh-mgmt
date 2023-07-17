@@ -1,7 +1,7 @@
 <form method="POST" action="<?= site_url('permintaanpembelian/buat') ?>" class="form">
   <div class="card">
     <div class="card-header">
-      <h5>Form Permintaan Pembelian Barang</h5>
+      <h5>Form Pesanan Pembelian Barang</h5>
     </div>
     <div class="card-body">
       <div class="mt-4">

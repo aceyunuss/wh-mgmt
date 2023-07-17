@@ -5,10 +5,10 @@
       <h4 class="page-title"><?= $site_subtitle2 ? $site_subtitle2 : $site_subtitle; ?></h4>
       <div class="breadcrumb">
         <span class="me-1 text-gray"><i class="feather icon-home"></i></span>
-        <div class="breadcrumb-item"><a href="<?= site_url() ?>"> Home </a></div>
-        <div class="breadcrumb-item"><a href="<?= site_url($subpage) ?>"> <?= $site_subtitle ?> </a></div>
+        <div class="breadcrumb-item">Home</div>
+        <div class="breadcrumb-item"><?= $site_subtitle ?></div>
         <?php if (!empty($site_subtitle2)) { ?>
-          <div class="breadcrumb-item"><a href="<?= site_url($subpage . '/' . $subpage2) ?>"> <?= $site_subtitle2 ?> </a></div>
+          <div class="breadcrumb-item"><?= $site_subtitle2 ?></div>
         <?php } ?>
       </div>
     </div>

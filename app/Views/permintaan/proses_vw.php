@@ -2,7 +2,7 @@
   <input type="hidden" class="form-control" value="<?= $permintaan['id'] ?>" name="id">
   <div class="card">
     <div class="card-header">
-      <h5>Form Permintaan Barang</h5>
+      <h5>Form Pesanan Barang</h5>
     </div>
     <div class="card-body">
       <div class="mt-4">
@@ -20,7 +20,7 @@
               </div>
             </div>
             <div class="row mb-3">
-              <label class="col-sm-2 col-form-label">Tanggal Permintaan</label>
+              <label class="col-sm-2 col-form-label">Tanggal Pesanan</label>
               <div class="col-sm-3">
                 <input type="text" class="form-control" value="<?= $permintaan['tanggal'] ?>" readonly>
               </div>

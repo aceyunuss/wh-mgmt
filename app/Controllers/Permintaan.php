@@ -16,7 +16,7 @@ class Permintaan extends BaseController
     $data['barang'] = $Barang_m->getAllBarang();
     $data['tgl'] = date('d-m-Y');
     $data['nomor'] = $Permintaan_m->generateNum();
-    return $this->template("permintaan/form_vw", "Permintaan", $data);
+    return $this->template("permintaan/form_vw", "Pesanan", $data);
   }
 
 
@@ -76,7 +76,7 @@ class Permintaan extends BaseController
     $data['permintaan'] = $Permintaan_m->getPermintaan($id);
     $data['barang'] = $Permintaan_barang_m->getPermintaanBarang($id);
 
-    return $this->template("permintaan/proses_vw", "Permintaan", $data);
+    return $this->template("permintaan/proses_vw", "Pesanan", $data);
   }
 
 
@@ -136,7 +136,7 @@ class Permintaan extends BaseController
     $data['permintaan'] = $Permintaan_m->getPermintaan($id);
     $data['barang'] = $Permintaan_barang_m->getPermintaanBarang($id);
 
-    return $this->template("permintaan/riwayat_vw", "Riwayat Permintaan", $data);
+    return $this->template("permintaan/riwayat_vw", "Riwayat Pesanan", $data);
   }
 
   public function updateStock($id)

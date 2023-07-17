@@ -2,7 +2,7 @@
   <div class="col-md-4">
     <div class="card">
       <div class="card-body">
-        <div class="text-muted mb-2">Total Nilai Permintaan Pembelian</div>
+        <div class="text-muted mb-2">Total Nilai Pesanan Pembelian</div>
         <h3>Rp <?= empty($dash1['permintaan_pembelian']) ? 0 : number_format($dash1['permintaan_pembelian'], 0, ",", ".") ?></h3>
         </p>
         <span class="text-muted fw-semibold">Total Nilai Pembelian</span>
@@ -43,7 +43,7 @@
       <div class="card-body">
         <h5 class="mb-1"><?= $dash3['permintaan_pending'] ?></h5>
         <div class="text-muted d-flex justify-content-between mb-2">
-          <span>Permintaan Disetujui</span>
+          <span>Pesanan Disetujui</span>
           <span><?= empty($dash3['permintaan_total']) ? 0 : round(($dash3['permintaan_pending'] / $dash3['permintaan_total'] * 100), 0) ?> %</span>
         </div>
         <div class="progress-sm progress">
@@ -52,7 +52,7 @@
         </p>
         <h5 class="mb-1"><?= $dash3['permintaan_pembelian_pending'] ?></h5>
         <div class="text-muted d-flex justify-content-between mb-2">
-          <span>Permintaan Pembelian Disetujui</span>
+          <span>Pesanan Pembelian Disetujui</span>
           <span><?= empty($dash3['permintaan_pembelian_total']) ? 0 : round(($dash3['permintaan_pembelian_pending'] / $dash3['permintaan_pembelian_total'] * 100), 0) ?> %</span>
         </div>
         <div class="progress-sm progress">

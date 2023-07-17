@@ -2,7 +2,7 @@
   <input type="hidden" class="form-control" value="<?= $permintaan['id'] ?>" name="id">
   <div class="card">
     <div class="card-header">
-      <h5>Form Permintaan Pembelian Barang</h5>
+      <h5>Form Pesanan Pembelian Barang</h5>
     </div>
     <div class="card-body">
       <div class="mt-4">

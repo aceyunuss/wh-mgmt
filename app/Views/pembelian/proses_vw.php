@@ -14,9 +14,9 @@
                 <input type="text" class="form-control" value="<?= $pembelian['nomor'] ?>" readonly>
               </div>
               <div class="col-sm-1"></div>
-              <label class="col-sm-2 col-form-label">Nomor PO</label>
+              <label class="col-sm-2 col-form-label">Nomor Pesanan Pembelian</label>
               <div class="col-sm-3">
-                <input type="text" class="form-control" value="<?= $pembelian['nomor_po'] ?>" readonly>
+                <input type="text" class="form-control" value="<?= $pembelian['nomor_permintaan_pembelian'] ?>" readonly>
               </div>
             </div>
             <div class="row mb-3">
@@ -25,15 +25,20 @@
                 <input type="text" class="form-control" value="<?= $pembelian['tanggal'] ?>" readonly>
               </div>
               <div class="col-sm-1"></div>
-              <label class="col-sm-2 col-form-label">Tanggal PO</label>
+              <label class="col-sm-2 col-form-label">Nomor PO</label>
               <div class="col-sm-3">
-                <input type="text" class="form-control" value="<?= $pembelian['tanggal_po'] ?>" readonly>
+                <input type="text" class="form-control" value="<?= $pembelian['nomor_po'] ?>" readonly>
               </div>
             </div>
             <div class="row mb-3">
               <label class="col-sm-2 col-form-label">Supplier</label>
               <div class="col-sm-3">
                 <input type="text" class="form-control" value="<?= $pembelian['kode_supplier'] . " - " . $pembelian['nama_supplier'] ?>" readonly>
+              </div>
+              <div class="col-sm-1"></div>
+              <label class="col-sm-2 col-form-label">Tanggal PO</label>
+              <div class="col-sm-3">
+                <input type="text" class="form-control" value="<?= $pembelian['tanggal_po'] ?>" readonly>
               </div>
             </div>
             <div class="row mb-3">

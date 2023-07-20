@@ -124,12 +124,15 @@ class Permintaan_pembelian extends BaseController
   {
     $Permintaan_pembelian_barang_m = new Permintaan_pembelian_barang_m();
     $Permintaan_pembelian_m = new Permintaan_pembelian_m();
+    $no = str_replace("|", "/", $no);
 
-    $permintaan = $Permintaan_pembelian_m->getPermintaan_pembelianParam(['nomor' => $no]);
+    $permintaan = $Permintaan_pembelian_m->getPermintaanParamPembelian(['nomor' => $no]);
 
     $barang = "";
     if (!empty($permintaan)) {
-      $barang = $Permintaan_pembelian_barang_m->getPermintaan_pembelianBarang($permintaan['id']);
+      $barang = $Permintaan_pembelian_barang_m->getPermintaanPembelianBarang($permintaan['id']);
+      $barang[0]['nomor_po'] = $permintaan['nomor_po'];
+      $barang[0]['tanggal_po'] = $permintaan['tanggal_po'];
     }
 
     echo json_encode($barang);

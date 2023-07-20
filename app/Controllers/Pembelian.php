@@ -5,7 +5,7 @@ namespace App\Controllers;
 use App\Models\Barang_m;
 use App\Models\Supplier_m;
 use App\Models\Pembelian_m;
-use App\Models\Permintaan_m;
+use App\Models\Permintaan_pembelian_m;
 use App\Models\Pembelian_barang_m;
 
 class Pembelian extends BaseController
@@ -16,17 +16,17 @@ class Pembelian extends BaseController
     $Barang_m = new Barang_m();
     $Pembelian_m = new Pembelian_m();
     $Supplier_m = new Supplier_m();
-    $Permintaan = new Permintaan_m();
+    $Permintaan_pembelian = new Permintaan_pembelian_m();
     $data['barang'] = $Barang_m->getAllBarang();
     $data['supplier'] = $Supplier_m->getAllSupplier();
     $data['tgl'] = date('d-m-Y');
     $data['nomor'] = $Pembelian_m->generateNum();
-    $permintaan = $Permintaan->getAllPermintaan();
-    $po = [];
-    foreach ($permintaan as $p) {
-      $po[] = $p['nomor_po'];
+    $permintaan_pembelian = $Permintaan_pembelian->getAllPermintaanPembelian();
+    $nopp = [];
+    foreach ($permintaan_pembelian as $p) {
+      $nopp[] = $p['nomor'];
     }
-    $data['po'] = $po;
+    $data['nopp'] = $nopp;
     return $this->template("pembelian/form_vw", "Pembelian", $data);
   }
 
@@ -53,6 +53,7 @@ class Pembelian extends BaseController
       'nama_supplier' => $sup['nama'],
       'nomor_po'      => $post['nomor_po'],
       'tanggal_po'    => $post['tgl_po_real'],
+      'nomor_permintaan_pembelian'      => $post['nomor_pesanan_pembelian'],
     ];
 
     $Pembelian_m->db->transBegin();

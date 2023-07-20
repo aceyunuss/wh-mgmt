@@ -151,4 +151,13 @@ class Permintaan extends BaseController
       $Barang_m->updateBarang($mst['id'], ['stok' => $stock]);
     }
   }
+
+
+
+  public function getbypo($po)
+  {
+    $Permintaan_m = new Permintaan_m();
+    $permintaan = $Permintaan_m->getPermintaanParam(['nomor_po' => $po]);
+    echo json_encode($permintaan['tanggal_po']);
+  }
 }

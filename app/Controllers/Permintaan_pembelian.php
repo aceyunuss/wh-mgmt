@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Barang_m;
+use App\Models\Permintaan_m;
 use App\Models\Permintaan_pembelian_m;
 use App\Models\Permintaan_pembelian_barang_m;
 
@@ -13,9 +14,16 @@ class Permintaan_pembelian extends BaseController
   {
     $Barang_m = new Barang_m();
     $Permintaan_pembelian_m = new Permintaan_pembelian_m();
+    $Permintaan = new Permintaan_m();
     $data['barang'] = $Barang_m->getAllBarang();
     $data['tgl'] = date('d-m-Y');
     $data['nomor'] = $Permintaan_pembelian_m->generateNum();
+    $permintaan = $Permintaan->getAllPermintaan();
+    $po = [];
+    foreach ($permintaan as $p) {
+      $po[] = $p['nomor_po'];
+    }
+    $data['po'] = $po;
     return $this->template("permintaan_pembelian/form_vw", "Pesanan Pembelian", $data);
   }
 
@@ -34,7 +42,7 @@ class Permintaan_pembelian extends BaseController
       'status'        => "Menunggu Persetujuan",
       'posisi'        => "Purchasing",
       'nomor_po'      => $post['nomor_po'],
-      'tanggal_po'    => $post['tgl_po'],
+      'tanggal_po'    => $post['tgl_po_real'],
     ];
 
     $Permintaan_pembelian_m->db->transBegin();

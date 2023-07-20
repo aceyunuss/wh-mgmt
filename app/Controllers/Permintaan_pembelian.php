@@ -19,11 +19,11 @@ class Permintaan_pembelian extends BaseController
     $data['tgl'] = date('d-m-Y');
     $data['nomor'] = $Permintaan_pembelian_m->generateNum();
     $permintaan = $Permintaan->getAllPermintaan();
-    $po = [];
+    $nop = [];
     foreach ($permintaan as $p) {
-      $po[] = $p['nomor_po'];
+      $nop[] = $p['nomor'];
     }
-    $data['po'] = $po;
+    $data['nop'] = $nop;
     return $this->template("permintaan_pembelian/form_vw", "Pesanan Pembelian", $data);
   }
 
@@ -43,6 +43,7 @@ class Permintaan_pembelian extends BaseController
       'posisi'        => "Purchasing",
       'nomor_po'      => $post['nomor_po'],
       'tanggal_po'    => $post['tgl_po_real'],
+      'nomor_permintaan' => $post['nomor_pesanan']
     ];
 
     $Permintaan_pembelian_m->db->transBegin();

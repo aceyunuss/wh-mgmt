@@ -13,11 +13,11 @@
                 <input type="text" class="form-control" value="<?= $nomor ?>" name="nomor" readonly>
               </div>
               <div class="col-sm-1"></div>
-              <label class="col-sm-2 col-form-label">Nomor PO</label>
+              <label class="col-sm-2 col-form-label">Nomor Pesanan</label>
               <div class="col-sm-3">
-                <select class="form-control nomor_po" name="nomor_po">
+                <select class="form-control nomor_pesanan" name="nomor_pesanan" required>
                   <option value="">--Pilih--</option>
-                  <?php foreach ((array)$po as $p) { ?>
+                  <?php foreach ((array)$nop as $p) { ?>
                     <option value="<?= $p ?>"><?= $p ?></option>
                   <?php } ?>
                 </select>
@@ -29,16 +29,20 @@
                 <input type="text" class="form-control" value="<?= $tgl ?>" name="tgl" readonly>
               </div>
               <div class="col-sm-1"></div>
-              <label class="col-sm-2 col-form-label">Tanggal PO</label>
+              <label class="col-sm-2 col-form-label">Nomor PO</label>
               <div class="col-sm-3">
-                <input type="text" class="form-control tgl_po" name="tgl_po" readonly>
-                <input type="date" class="form-control tgl_po_real" name="tgl_po_real" style="display: none;">
+                <input type="text" class="form-control nomor_po" name="nomor_po" readonly>
               </div>
             </div>
             <div class="row mb-3">
               <label class="col-sm-2 col-form-label">Keterangan</label>
               <div class="col-sm-4">
                 <textarea class="form-control" name="keterangan"></textarea>
+              </div>
+              <label class="col-sm-2 col-form-label">Tanggal PO</label>
+              <div class="col-sm-3">
+                <input type="text" class="form-control tgl_po" name="tgl_po" readonly>
+                <input type="date" class="form-control tgl_po_real" name="tgl_po_real" style="display: none;">
               </div>
             </div>
           </div>
@@ -103,16 +107,42 @@
 <script>
   $(document).ready(function() {
 
-    $(".nomor_po").change(function() {
-      const po = $(this).val();
+    $(".nomor_pesanan").change(function() {
+      const no = $(this).val().replaceAll("/", "-");
+      $('.item_table tbody').empty()
+
+      let tbody = "";
       $.ajax({
         method: 'GET',
-        url: '<?= site_url('permintaan/getbypo/'); ?>' + po,
+        url: '<?= site_url('permintaan/getbyno/'); ?>' + no,
         dataType: 'json',
         success: function(response) {
-          tgl = response.split("-")
+          response.forEach(el => {
+            tbody += '<tr>\
+              <td><center><i class="icon-trash-2 feather remove"></i></i></center></td>\
+              <td>' + el.kode + '</td>\
+              <input type="hidden" value="' + el.kode + '" name="itm_code[]">\
+              <td>' + el.nama + '</td>\
+              <input type="hidden" value="' + el.id_barang + '" name="itm_id[]">\
+              <input type="hidden" value="' + el.nama + '" name="itm_nama[]">\
+              <td>' + el.jumlah + '</td>\
+              <input type="hidden" value="' + el.jumlah + '" name="itm_jml[]">\
+              <td>' + el.satuan + '</td>\
+              <input type="hidden" value="' + el.satuan + '" name="itm_unt[]">\
+              <td>' + el.harga + '</td>\
+              <input type="hidden" value="' + el.harga + '" name="itm_harga[]">\
+              <td>' + el.jumlah * el.harga + '</td>\
+              <input type="hidden" value="' + el.jumlah * el.harga + '" name="itm_total[]">\
+            </tr>';
+          })
+
+          $('.nomor_po').val(response[0].nomor_po);
+          tgl = response[0].tanggal_po.split("-")
           $('.tgl_po').val(tgl[2] + "-" + tgl[1] + "-" + tgl[0]);
-          $('.tgl_po_real').val(response);
+          $('.tgl_po_real').val(response[0].tanggal_po);
+
+          $('.item_table tbody').append(tbody)
+          sumTot();
         },
         error: function(xhr, status, error) {
           console.error(error);

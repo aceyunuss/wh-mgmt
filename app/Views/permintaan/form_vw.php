@@ -49,7 +49,7 @@
                 <select class="form-control" id="item">
                   <option value="">--Pilih--</option>
                   <?php foreach ((array)$barang as $k => $b) { ?>
-                    <option value="<?= $b['id'] ?>"><?= $b['kode'] . " - " . $b['nama'] . " - " . $b['satuan'] ?></option>
+                    <option value="<?= $b['id'] ?>"><?= $b['kode'] . " - " . $b['nama'] . " @" . $b['harga'] . "/" . $b['satuan'] ?></option>
                   <?php } ?>
                 </select>
               </div>
@@ -74,11 +74,18 @@
               <th>Nama Barang</th>
               <th>Jumlah</th>
               <th>Satuan</th>
+              <th>Harga</th>
+              <th>Total</th>
             </tr>
           </thead>
           <tbody>
           </tbody>
         </table>
+        <div class="d-flex justify-content-end mt-5">
+          <div class="text-end">
+            <h5 class="fw-bold mt-3"><span class="ms-1">Total Akhir : Rp </span><span class="ta">0</span></h5>
+          </div>
+        </div>
       </div>
       </br></br></br>
       <center>
@@ -96,10 +103,11 @@
       let selected = $('#item option:selected').text()
       let sel = selected.split(" - ");
       let code = sel[0];
-      let name = sel[1];
-      let unit = sel[2];
-
+      let name = sel[1].split("@")[0];
+      let harga = sel[1].split("@")[1].split("/")[0];
+      let unit = sel[1].split("@")[1].split("/")[1];
       let qty = $('#jml').val()
+      let total = harga * qty;
 
       if (name == "" || qty == "" || id == "") {
         alert('Please fill form item')
@@ -116,11 +124,16 @@
               <input type="hidden" value="' + qty + '" name="itm_jml[]">\
               <td>' + unit + '</td>\
               <input type="hidden" value="' + unit + '" name="itm_unt[]">\
+              <td>' + harga + '</td>\
+              <input type="hidden" value="' + harga + '" name="itm_harga[]">\
+              <td>' + total + '</td>\
+              <input type="hidden" value="' + total + '" name="itm_total[]">\
             </tr>';
 
         $('.item_table tbody').append(tbody)
         $('#item, #jml').val('')
         $('#item').trigger('change')
+        sumTot(); 
       }
     })
   })
@@ -139,4 +152,13 @@
       e.preventDefault();
     }
   })
+
+
+  function sumTot() {
+    let stot = 0;
+    $('.item_table tbody tr').each(function() {
+      stot += $(this).children().eq(12).text() * 1;
+    });
+    $(".ta").text(stot.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."))
+  }
 </script>

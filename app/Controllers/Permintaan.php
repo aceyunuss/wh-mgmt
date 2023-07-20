@@ -49,6 +49,8 @@ class Permintaan extends BaseController
       $barang[$key]['nama']       = $post['itm_nama'][$key];
       $barang[$key]['jumlah']       = $post['itm_jml'][$key];
       $barang[$key]['satuan']    = $post['itm_unt'][$key];
+      $barang[$key]['total']    = $post['itm_total'][$key];
+      $barang[$key]['harga']    = $post['itm_harga'][$key];
     }
 
     $Permintaan_barang_m->insertPermintaanBarang($barang);
@@ -117,12 +119,14 @@ class Permintaan extends BaseController
   {
     $Permintaan_barang_m = new Permintaan_barang_m();
     $Permintaan_m = new Permintaan_m();
-
+    $no = str_replace("-", "/", $no);
     $permintaan = $Permintaan_m->getPermintaanParam(['nomor' => $no]);
 
     $barang = "";
     if (!empty($permintaan)) {
       $barang = $Permintaan_barang_m->getPermintaanBarang($permintaan['id']);
+      $barang[0]['nomor_po'] = $permintaan['nomor_po'];
+      $barang[0]['tanggal_po'] = $permintaan['tanggal_po'];
     }
 
     echo json_encode($barang);

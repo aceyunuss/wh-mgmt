@@ -48,10 +48,15 @@
               <th>Nama Barang</th>
               <th>Jumlah</th>
               <th>Satuan</th>
+              <th>Harga</th>
+              <th>Total</th>
             </tr>
           </thead>
           <tbody>
-            <?php foreach ($barang as $k => $v) { ?>
+            <?php $total = 0;
+            foreach ($barang as $k => $v) {
+              $total += $v['total'];
+            ?>
               <tr>
                 <td>
                   <center><?= $k + 1 ?></center>
@@ -60,10 +65,17 @@
                 <td><?= $v['nama'] ?></td>
                 <td><?= $v['jumlah'] ?></td>
                 <td><?= $v['satuan'] ?></td>
+                <td><?= number_format($v['harga'], 0, ",", ".") ?></td>
+                <td><?= number_format($v['total'], 0, ",", ".") ?></td>
               </tr>
             <?php } ?>
           </tbody>
         </table>
+        <div class="d-flex justify-content-end mt-5">
+          <div class="text-end">
+            <h5 class="fw-bold mt-3"><span class="ms-1">Total Akhir : Rp </span><span class="ta"><?= number_format($total, 0, ",", ".") ?></span></h5>
+          </div>
+        </div>
       </div>
     </div>
   </div>

@@ -8,7 +8,7 @@ class Permintaan_barang_m extends Model
 {
   protected $table = 'permintaan_barang';
   protected $primaryKey = 'id';
-  protected $allowedFields = ['id_permintaan', 'id_barang', 'nama', 'kode', 'jumlah', 'satuan'];
+  protected $allowedFields = ['id_permintaan', 'id_barang', 'nama', 'kode', 'jumlah', 'satuan', 'harga', 'total'];
 
   public function insertPermintaanBarang($data)
   {

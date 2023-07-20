@@ -15,7 +15,12 @@
               <div class="col-sm-1"></div>
               <label class="col-sm-2 col-form-label">Nomor PO</label>
               <div class="col-sm-3">
-                <input type="text" class="form-control" name="nomor_po">
+                <select class="form-control nomor_po" name="nomor_po">
+                  <option value="">--Pilih--</option>
+                  <?php foreach ((array)$po as $p) { ?>
+                    <option value="<?= $p ?>"><?= $p ?></option>
+                  <?php } ?>
+                </select>
               </div>
             </div>
             <div class="row mb-3">
@@ -26,7 +31,8 @@
               <div class="col-sm-1"></div>
               <label class="col-sm-2 col-form-label">Tanggal PO</label>
               <div class="col-sm-3">
-                <input type="date" class="form-control" name="tgl_po">
+                <input type="text" class="form-control tgl_po" name="tgl_po" readonly>
+                <input type="date" class="form-control tgl_po_real" name="tgl_po_real" style="display: none;">
               </div>
             </div>
             <div class="row mb-3">
@@ -107,6 +113,23 @@
 </form>
 <script>
   $(document).ready(function() {
+
+    $(".nomor_po").change(function() {
+      const po = $(this).val();
+      $.ajax({
+        method: 'GET',
+        url: '<?= site_url('permintaan/getbypo/'); ?>' + po,
+        dataType: 'json',
+        success: function(response) {
+          tgl = response.split("-")
+          $('.tgl_po').val(tgl[2] + "-" + tgl[1] + "-" + tgl[0]);
+          $('.tgl_po_real').val(response);
+        },
+        error: function(xhr, status, error) {
+          console.error(error);
+        }
+      });
+    })
 
     $('.add').click(function() {
       let counter = $('.item_table tr').length + 1;

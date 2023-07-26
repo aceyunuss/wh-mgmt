@@ -76,6 +76,7 @@
               <th>Nomor</th>
               <th>Kategori</th>
               <th>Tanggal</th>
+              <th>Deadline PO</th>
               <th>Status</th>
             </tr>
           </thead>
@@ -92,6 +93,7 @@
                   </div>
                 </td>
                 <td><?= $v['tanggal'] ?></td>
+                <td><?= $v['deadline'] ?> Hari</td>
                 <td>
                   <div class="badge-dot bg-success"></div>
                   <span class="ms-2"><?= $v['status'] ?></span>

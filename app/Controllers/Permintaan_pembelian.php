@@ -51,6 +51,7 @@ class Permintaan_pembelian extends BaseController
       'posisi'        => "Purchasing",
       'nomor_po'      => $post['nomor_po'],
       'tanggal_po'    => $post['tgl_po_real'],
+      'file_po'      => $post['file_po'],
       'nomor_permintaan' => $post['nomor_pesanan']
     ];
 
@@ -141,6 +142,7 @@ class Permintaan_pembelian extends BaseController
       $barang = $Permintaan_pembelian_barang_m->getPermintaanPembelianBarang($permintaan['id']);
       $barang[0]['nomor_po'] = $permintaan['nomor_po'];
       $barang[0]['tanggal_po'] = $permintaan['tanggal_po'];
+      $barang[0]['file_po'] = $permintaan['file_po'];
     }
 
     echo json_encode($barang);

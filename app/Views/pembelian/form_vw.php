@@ -56,6 +56,11 @@
               <div class="col-sm-4">
                 <textarea class="form-control" name="keterangan"></textarea>
               </div>
+              <label class="col-sm-2 col-form-label">File PO</label>
+              <div class="col-sm-3">
+                <a target="_blank" class="link_file_po" href="<?= site_url('download/') ?>"></a>
+                <input type="text" class="form-control file_po" name="file_po" style="display: none;">
+              </div>
             </div>
           </div>
         </div>
@@ -146,7 +151,9 @@
               <input type="hidden" value="' + el.total + '" name="itm_total[]">\
             </tr>';
           })
-
+          
+          $('.file_po').val(response[0].file_po);
+          $('.link_file_po').text(response[0].file_po).attr("href", "<?= site_url('download/') ?>" + response[0].file_po);
           $('.nomor_po').val(response[0].nomor_po);
           tgl = response[0].tanggal_po.split("-")
           $('.tgl_po').val(tgl[2] + "-" + tgl[1] + "-" + tgl[0]);

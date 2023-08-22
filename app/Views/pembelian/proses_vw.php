@@ -46,6 +46,10 @@
               <div class="col-sm-4">
                 <textarea class="form-control" readonly><?= $pembelian['keterangan'] ?></textarea>
               </div>
+              <label class="col-sm-2 col-form-label">File PO</label>
+              <div class="col-sm-3">
+                <a target="_blank" href="<?= site_url('download/' . $pembelian['file_po']) ?>"><?= $pembelian['file_po'] ?></a>
+              </div>
             </div>
           </div>
         </div>

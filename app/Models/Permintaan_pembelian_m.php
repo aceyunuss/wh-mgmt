@@ -8,7 +8,7 @@ class Permintaan_pembelian_m extends Model
 {
   protected $table = 'permintaan_pembelian';
   protected $primaryKey = 'id';
-  protected $allowedFields = ['nama_pengguna', 'nomor', 'tanggal', 'status', 'posisi', 'id_permintaan', 'note', 'nomor_po', 'tanggal_po', 'nomor_permintaan'];
+  protected $allowedFields = ['nama_pengguna', 'nomor', 'tanggal', 'status', 'posisi', 'id_permintaan', 'note', 'nomor_po', 'tanggal_po', 'nomor_permintaan', 'file_po'];
 
   public function insertPermintaanPembelian($data)
   {

@@ -15,7 +15,7 @@ MODIFY COLUMN `nomor_po` varchar(25) CHARACTER SET utf32 COLLATE utf32_unicode_c
 ALTER TABLE `wh-mg`.`pengguna` 
 MODIFY COLUMN `password` varchar(100) CHARACTER SET utf32 COLLATE utf32_unicode_ci NULL DEFAULT NULL AFTER `username`,
 MODIFY COLUMN `nama` varchar(50) CHARACTER SET utf32 COLLATE utf32_unicode_ci NULL DEFAULT NULL AFTER `password`,
-MODIFY COLUMN `jabatan` varchar(10) CHARACTER SET utf32 COLLATE utf32_unicode_ci NULL DEFAULT NULL AFTER `nama`,
+MODIFY COLUMN `jabatan` varchar(50) CHARACTER SET utf32 COLLATE utf32_unicode_ci NULL DEFAULT NULL AFTER `nama`,
 MODIFY COLUMN `telp` varchar(15) CHARACTER SET utf32 COLLATE utf32_unicode_ci NULL DEFAULT NULL AFTER `tgl_lahir`;
 
 ALTER TABLE `wh-mg`.`permintaan` 

@@ -137,6 +137,7 @@ class Permintaan extends BaseController
       $barang = $Permintaan_barang_m->getPermintaanBarang($permintaan['id']);
       $barang[0]['nomor_po'] = $permintaan['nomor_po'];
       $barang[0]['tanggal_po'] = $permintaan['tanggal_po'];
+      $barang[0]['file_po'] = $permintaan['file_po'];
     }
 
     echo json_encode($barang);

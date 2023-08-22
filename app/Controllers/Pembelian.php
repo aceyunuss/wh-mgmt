@@ -61,6 +61,7 @@ class Pembelian extends BaseController
       'nama_supplier' => $sup['nama'],
       'nomor_po'      => $post['nomor_po'],
       'tanggal_po'    => $post['tgl_po_real'],
+      'file_po'      => $post['file_po'],
       'nomor_permintaan_pembelian'      => $post['nomor_pesanan_pembelian'],
     ];
 

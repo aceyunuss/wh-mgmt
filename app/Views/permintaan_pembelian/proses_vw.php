@@ -40,6 +40,13 @@
                 <input type="text" class="form-control" value="<?= $permintaan['tanggal_po'] ?>" readonly>
               </div>
             </div>
+            <div class="row mb-3">
+              <div class="col-sm-6"></div>
+              <label class="col-sm-2 col-form-label">File PO</label>
+              <div class="col-sm-3">
+                <a target="_blank" href="<?= site_url('download/' . $permintaan['file_po']) ?>"><?= $permintaan['file_po'] ?></a>
+              </div>
+            </div>
           </div>
         </div>
       </div>

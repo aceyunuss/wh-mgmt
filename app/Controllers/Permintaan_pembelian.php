@@ -18,6 +18,14 @@ class Permintaan_pembelian extends BaseController
     $data['barang'] = $Barang_m->getAllBarang();
     $data['tgl'] = date('d-m-Y');
     $data['nomor'] = $Permintaan_pembelian_m->generateNum();
+
+    $Permintaan_pembelian_m->select("nomor_permintaan");
+    $per_pem = $Permintaan_pembelian_m->getAllPermintaanPembelian();;
+    $used = array_filter(array_column($per_pem, "nomor_permintaan"), function ($item) {
+      return $item !== NULL;
+    });
+
+    $Permintaan->whereNotIn("nomor", $used);
     $permintaan = $Permintaan->getAllPermintaan();
     $nop = [];
     foreach ($permintaan as $p) {

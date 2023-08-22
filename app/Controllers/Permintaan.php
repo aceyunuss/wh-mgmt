@@ -22,9 +22,18 @@ class Permintaan extends BaseController
 
   public function buat()
   {
+    $err = FALSE;
     $Permintaan_m = new Permintaan_m();
     $Permintaan_barang_m = new Permintaan_barang_m();
     $post = $this->request->getPost();
+    $file = $this->request->getFile('lamp');
+
+    if ($file->isValid() && !$file->hasMoved()) {
+      $newName = $file->getRandomName();
+      $file->move(WRITEPATH . 'uploads/lampiran_po', $newName);
+    } else {
+      $err = TRUE;
+    }
 
     $data = [
       'nama_pengguna' => session()->get('nama'),
@@ -35,6 +44,7 @@ class Permintaan extends BaseController
       'posisi'        => "Kepala Gudang",
       'nomor_po'      => $post['nomor_po'],
       'tanggal_po'    => $post['tgl_po'],
+      'file_po'       => $newName
     ];
 
     $Permintaan_m->db->transBegin();
@@ -55,7 +65,7 @@ class Permintaan extends BaseController
 
     $Permintaan_barang_m->insertPermintaanBarang($barang);
 
-    if ($Permintaan_m->db->transStatus() === false) {
+    if ($Permintaan_m->db->transStatus() === false || $err) {
       $status = "danger";
       $msg = 'Data permintaan gagal dibuat';
       $Permintaan_m->db->transRollback();

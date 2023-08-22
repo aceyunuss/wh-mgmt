@@ -30,8 +30,12 @@
           </div>
           <div class="row mb-3">
             <label class="col-sm-2 col-form-label">Keterangan</label>
-            <div class="col-sm-6">
+            <div class="col-sm-4">
               <textarea class="form-control" readonly><?= $permintaan['keterangan'] ?></textarea>
+            </div>
+            <label class="col-sm-2 col-form-label">File PO</label>
+            <div class="col-sm-3">
+              <a target="_blank" href="<?= site_url('download/'.$permintaan['file_po']) ?>"><?= $permintaan['file_po'] ?></a>
             </div>
           </div>
         </div>

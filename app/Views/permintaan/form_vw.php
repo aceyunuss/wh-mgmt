@@ -1,4 +1,4 @@
-<form method="POST" action="<?= site_url('permintaan/buat') ?>" class="form">
+<form method="POST" action="<?= site_url('permintaan/buat') ?>" class="form" enctype="multipart/form-data">
   <div class="card">
     <div class="card-header">
       <h5>Form Pesanan Barang</h5>
@@ -33,6 +33,10 @@
               <label class="col-sm-2 col-form-label">Keterangan</label>
               <div class="col-sm-4">
                 <textarea class="form-control" name="keterangan"></textarea>
+              </div>
+              <label class="col-sm-2 col-form-label">Lampiran PO</label>
+              <div class="col-sm-3">
+                <input type="file" class="form-control" name="lamp" required>
               </div>
             </div>
           </div>

@@ -34,6 +34,7 @@ $routes->get('dashboard', 'Home::dashboard');
 $routes->get('riwayat', 'Home::riwayat');
 $routes->get('logout', 'Home::logout');
 $routes->post('login', 'Home::login');
+$routes->get('download/(:segment)', 'Home::download/$1');
 
 
 $routes->group('master', function ($routes) {

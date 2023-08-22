@@ -53,3 +53,10 @@ ALTER TABLE `wh-mg`.`supplier`
 MODIFY COLUMN `nama` varchar(50) CHARACTER SET utf32 COLLATE utf32_unicode_ci NULL DEFAULT NULL AFTER `id`,
 MODIFY COLUMN `kode` varchar(10) CHARACTER SET utf32 COLLATE utf32_unicode_ci NULL DEFAULT NULL AFTER `nama`,
 MODIFY COLUMN `alamat` varchar(100) CHARACTER SET utf32 COLLATE utf32_unicode_ci NULL DEFAULT NULL AFTER `kode`;
+
+ALTER TABLE `wh-mg`.`permintaan` 
+ADD COLUMN `file_po` varchar(50) NULL;
+ALTER TABLE `wh-mg`.`permintaan_pembelian` 
+ADD COLUMN `file_po` varchar(50) NULL;
+ALTER TABLE `wh-mg`.`pembelian` 
+ADD COLUMN `file_po` varchar(50) NULL;

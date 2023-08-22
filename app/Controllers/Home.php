@@ -72,4 +72,14 @@ class Home extends BaseController
     $data['pb'] = $Pembelian->getAllPembelian();
     return $this->template("riwayat_vw", "Riwayat", $data);
   }
+
+  public function download($filename)
+  {
+    $filePath = WRITEPATH . 'uploads/lampiran_po/' . $filename;
+    if (file_exists($filePath)) {
+      return $this->response->download($filePath, null);
+    } else {
+      return "File not found.";
+    }
+  }
 }

@@ -59,6 +59,7 @@
       </br>
       <hr>
       <div class="mt-5">
+        <!--
         <div class="row">
           <div class="col-md-12">
             <div class="row mb-3">
@@ -84,6 +85,7 @@
           <a class="btn btn-success btn-sm add">Tambah Barang</a>
         </center>
         </br>
+                  -->
         <table class="table item_table">
           <thead>
             <tr>

@@ -68,6 +68,7 @@
       </br>
       <hr>
       <div class="mt-5">
+        <!--
         <div class="row">
           <div class="col-md-12">
             <div class="row mb-3">
@@ -93,6 +94,7 @@
           <a class="btn btn-success btn-sm add">Tambah Barang</a>
         </center>
         </br>
+                  -->
         <table class="table item_table">
           <thead>
             <tr>
@@ -151,7 +153,7 @@
               <input type="hidden" value="' + el.total + '" name="itm_total[]">\
             </tr>';
           })
-          
+
           $('.file_po').val(response[0].file_po);
           $('.link_file_po').text(response[0].file_po).attr("href", "<?= site_url('download/') ?>" + response[0].file_po);
           $('.nomor_po').val(response[0].nomor_po);

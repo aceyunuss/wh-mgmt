@@ -15,7 +15,7 @@
               <div class="col-sm-1"></div>
               <label class="col-sm-2 col-form-label">Nomor PO</label>
               <div class="col-sm-3">
-                <input type="text" class="form-control" name="nomor_po">
+                <input type="text" class="form-control" name="nomor_po" autocomplete="off">
               </div>
             </div>
             <div class="row mb-3">

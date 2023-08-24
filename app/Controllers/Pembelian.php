@@ -21,14 +21,16 @@ class Pembelian extends BaseController
     $data['supplier'] = $Supplier_m->getAllSupplier();
     $data['tgl'] = date('d-m-Y');
     $data['nomor'] = $Pembelian_m->generateNum();
-    
+
     $Pembelian_m->select("nomor_permintaan_pembelian");
     $per_pem = $Pembelian_m->getAllPembelian();
     $used = array_filter(array_column($per_pem, "nomor_permintaan_pembelian"), function ($item) {
       return $item !== NULL;
     });
 
-    $Permintaan_pembelian->whereNotIn("nomor", $used);
+    if (!empty($used)) {
+      $Permintaan_pembelian->whereNotIn("nomor", $used);
+    }
     $permintaan_pembelian = $Permintaan_pembelian->getAllPermintaanPembelian();
     $nopp = [];
     foreach ($permintaan_pembelian as $p) {

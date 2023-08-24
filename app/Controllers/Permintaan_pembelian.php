@@ -25,7 +25,9 @@ class Permintaan_pembelian extends BaseController
       return $item !== NULL;
     });
 
-    $Permintaan->whereNotIn("nomor", $used);
+    if (!empty($used)) {
+      $Permintaan->whereNotIn("nomor", $used);
+    }
     $permintaan = $Permintaan->getAllPermintaan();
     $nop = [];
     foreach ($permintaan as $p) {

@@ -67,8 +67,11 @@ class Home extends BaseController
     $Permintaan_pembelian = new Permintaan_pembelian_m();
     $Pembelian = new Pembelian_m();
 
+    $Permintaan->orderBy("id", "desc");
     $data['pr'] = $Permintaan->getAllPermintaan();
+    $Permintaan_pembelian->orderBy("id", "desc");
     $data['prb'] = $Permintaan_pembelian->getAllPermintaanPembelian();
+    $Pembelian->orderBy("id", "desc");
     $data['pb'] = $Pembelian->getAllPembelian();
     return $this->template("riwayat_vw", "Riwayat", $data);
   }

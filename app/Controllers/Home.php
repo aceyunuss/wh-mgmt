@@ -61,19 +61,32 @@ class Home extends BaseController
     return redirect()->to('/');
   }
 
-  public function riwayat()
+  public function riwayat($code)
   {
     $Permintaan = new Permintaan_m();
     $Permintaan_pembelian = new Permintaan_pembelian_m();
     $Pembelian = new Pembelian_m();
 
-    $Permintaan->orderBy("id", "desc");
-    $data['pr'] = $Permintaan->getAllPermintaan();
-    $Permintaan_pembelian->orderBy("id", "desc");
-    $data['prb'] = $Permintaan_pembelian->getAllPermintaanPembelian();
-    $Pembelian->orderBy("id", "desc");
-    $data['pb'] = $Pembelian->getAllPembelian();
-    return $this->template("riwayat_vw", "Riwayat", $data);
+    switch ($code) {
+      case 'pr':
+        $Permintaan->orderBy("id", "desc");
+        $v = "riwayat_pr_vw";
+        $data['pr'] = $Permintaan->getAllPermintaan();
+        break;
+
+      case 'prb':
+        $Permintaan_pembelian->orderBy("id", "desc");
+        $v = "riwayat_prb_vw";
+        $data['prb'] = $Permintaan_pembelian->getAllPermintaanPembelian();
+        break;
+
+      case 'pb':
+        $Pembelian->orderBy("id", "desc");
+        $v = "riwayat_pb_vw";
+        $data['pb'] = $Pembelian->getAllPembelian();
+        break;
+    }
+    return $this->template($v, "Riwayat", $data);
   }
 
   public function download($filename)

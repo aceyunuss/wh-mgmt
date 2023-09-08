@@ -31,7 +31,7 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('dashboard', 'Home::dashboard');
-$routes->get('riwayat', 'Home::riwayat');
+$routes->get('riwayat/(:segment)', 'Home::riwayat/$1');
 $routes->get('logout', 'Home::logout');
 $routes->post('login', 'Home::login');
 $routes->get('download/(:segment)', 'Home::download/$1');

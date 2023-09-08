@@ -58,18 +58,24 @@
         <span class="nav-menu-item-title">Pembelian Barang</span>
       </a>
     </li>
-    <li class="nav-menu-item riw">
-      <a href="<?= site_url("riwayat") ?>">
-        <i class="icon-clock feather"></i>
-        <span class="nav-menu-item-title">Riwayat Transaksi</span>
+    <li class="nav-submenu riw">
+      <a class="nav-submenu-title">
+        <i class="feather icon-clock"></i>
+        <span>Riwayat Transaksi</span>
+        <i class="nav-submenu-arrow"></i>
       </a>
+      <ul class="nav-menu menu-collapse">
+        <li class="nav-menu-item rperm">
+          <a href="<?= site_url("riwayat/pr") ?>">Pesanan Barang</a>
+        </li>
+        <li class="nav-menu-item rpermpemb">
+          <a href="<?= site_url("riwayat/prb") ?>">Pesanan Pembelian Barang</a>
+        </li>
+        <li class="nav-menu-item rpemb">
+          <a href="<?= site_url("riwayat/pb") ?>">Pembelian Barang</a>
+        </li>
+      </ul>
     </li>
-    <!-- <li class="nav-menu-item">
-      <a href="<?= site_url("prediksi") ?>">
-        <i class="icon-bar-chart-2 feather"></i>
-        <span class="nav-menu-item-title">Prediksi Persediaan</span>
-      </a>
-    </li> -->
   </ul>
 </div>
 
@@ -77,21 +83,21 @@
 <script>
   let role =  "<?= $usr['jabatan'] ?>";
 
-  $('.nav-menu-item').hide();
+  $('.nav-menu-item, .nav-submenu').hide();
   switch (role) {
     case "Admin Aplikasi":
-      $('.pemb, .pengguna, .barang, .supp, .permpemb, .perm, .riw, .dash').show();
+      $('.pemb, .pengguna, .barang, .supp, .permpemb, .perm, .riw, .dash, .rperm, .rpermpemb, .rpemb').show();
     case "Purchasing":
-      $('.pemb, .barang, .supp, .riw, .dash').show();
+      $('.pemb, .barang, .supp, .riw, .dash, .rpemb').show();
       break;
     case "Marketing":
-      $('.perm, .barang, .riw, .dash').show();
+      $('.perm, .barang, .riw, .dash, .rperm').show();
       break;
     case "Kepala Gudang":
-      $('.permpemb, .barang, .riw, .dash').show();
+      $('.permpemb, .barang, .riw, .dash, .rpermpemb').show();
       break;
     case "General Manager":
-      $('.riw, .dash').show();
+      $('.riw, .dash, .rperm, .rpermpemb, .rpemb').show();
       break;
   }
 </script>
